@@ -1,0 +1,20 @@
+---
+
+- name: 'Download Confluence archive'
+  get_url:
+    url: '{{ confluence__archive_url }}'
+    dest: '{{ confluence__user_result.home }}/{{ confluence__archive_url|basename }}'
+    owner: '{{ confluence__username }}'
+    group: '{{ confluence__group }}'
+    mode: 0644
+  register: confluence__archive_result
+
+- name: 'Extract Confluence archive'
+  unarchive:
+    src: '{{ confluence__archive_result.dest }}'
+    dest: '{{ confluence__install_path }}'
+    extra_opts: [ --strip-components=1 ]
+    remote_src: true
+    owner: '{{ confluence__username }}'
+    group: '{{ confluence__group }}'
+  when: confluence__archive_result.changed

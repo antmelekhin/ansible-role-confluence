@@ -1,0 +1,28 @@
+---
+
+- name: 'Create Confluence unit for SystemD'
+  template:
+    src: confluence.service.j2
+    dest: /etc/systemd/system/confluence.service
+    owner: '{{ confluence__username }}'
+    group: '{{ confluence__group }}'
+    mode: 0644
+  notify: Reload systemctl
+
+- name: 'Start Confluence'
+  service:
+    name: confluence
+    enabled: true
+    state: started
+
+- name: 'Configure Confluence'
+  template:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
+    owner: '{{ confluence__username }}'
+    group: '{{ confluence__group }}'
+    mode: 0644
+  with_items:
+    - { src: 'server.xml.j2', dest: '{{ confluence__install_path }}/conf/server.xml' }
+    - { src: 'confluence-init.properties.j2', dest: '{{ confluence__install_path }}/confluence/WEB-INF/classes/confluence-init.properties' }
+  notify: Restart Confluence

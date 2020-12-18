@@ -1,0 +1,16 @@
+{{ ansible_managed|comment }}
+
+[Unit]
+Description=Confluence
+After=network.target
+
+[Service]
+Type=forking
+User={{ confluence__username }}
+Environment="CATALINA_OPTS=-Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8"
+PIDFile={{ confluence__install_path }}/work/catalina.pid
+ExecStart={{ confluence__install_path }}/bin/start-confluence.sh
+ExecStop={{ confluence__install_path }}/bin/stop-confluence.sh
+
+[Install]
+WantedBy=multi-user.target

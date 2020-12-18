@@ -1,0 +1,19 @@
+---
+# defaults file for confluence
+
+# Confluence download link.
+confluence__version: '7.4.5'
+confluence__archive_url: 'https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-{{ confluence__version }}.tar.gz'
+
+# Confluence user.
+confluence__username: 'confluence'
+confluence__group: 'confluence'
+
+# Confluence directories.
+confluence__install_path: '/opt/atlassian/confluence'
+confluence__home_path: '/var/atlassian/application-data/confluence'
+
+# Confluence proxy settings.
+confluence__tomcat_connector_proxyname: ''
+confluence__tomcat_connector_scheme: 'http'
+confluence__tomcat_connector_proxyport: '{{ (confluence__tomcat_connector_scheme|lower == "http")|ternary("80", "443") }}'

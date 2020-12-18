@@ -1,0 +1,81 @@
+{{ ansible_managed|comment('xml') }}
+<Server port="8000" shutdown="SHUTDOWN" debug="0">
+    <Service name="Tomcat-Standalone">
+        {% if confluence__tomcat_connector_proxyname is defined and confluence__tomcat_connector_proxyname|length -%}
+        <!--
+        ==============================================================================================================
+        {{ confluence__tomcat_connector_scheme|upper }} - Proxying Confluence via Apache or Nginx over {{ confluence__tomcat_connector_scheme|upper }}
+
+        For more information see:
+            Apache - https://confluence.atlassian.com/x/4xQLM
+            nginx  - https://confluence.atlassian.com/x/TgSvEg
+        ==============================================================================================================
+        -->
+
+        <Connector port="8090"
+            connectionTimeout="20000"
+            redirectPort="8443"
+            maxThreads="48"
+            minSpareThreads="10"
+            enableLookups="false"
+            acceptCount="10"
+            debug="0"
+            URIEncoding="UTF-8"
+            protocol="org.apache.coyote.http11.Http11NioProtocol"
+            scheme="{{ confluence__tomcat_connector_scheme|lower }}"
+            secure="{{ (confluence__tomcat_connector_scheme|lower == "http")|ternary("false", "true") }}"
+            proxyName="{{ confluence__tomcat_connector_proxyname }}"
+            proxyPort="{{ confluence__tomcat_connector_proxyport }}"/>
+        {% else -%}
+
+        <!--
+        ==============================================================================================================
+        DEFAULT - Direct connector with no proxy, for unproxied HTTP access to Confluence.
+        ==============================================================================================================
+        -->
+        <Connector port="8090"
+            connectionTimeout="20000"
+            redirectPort="8443"
+            maxThreads="48"
+            minSpareThreads="10"
+            enableLookups="false"
+            acceptCount="10"
+            debug="0"
+            URIEncoding="UTF-8"
+            protocol="org.apache.coyote.http11.Http11NioProtocol"/>
+        {% endif %}
+
+        <!--
+        ==============================================================================================================
+        HTTPS - Direct connector with no proxy, for unproxied HTTPS access to Confluence.
+
+        For more info see https://confluence.atlassian.com/x/s3UC
+        ==============================================================================================================
+        -->
+
+        <!--
+        <Connector port="8443" maxHttpHeaderSize="8192"
+                   maxThreads="150" minSpareThreads="25"
+                   protocol="org.apache.coyote.http11.Http11Nio2Protocol"
+                   enableLookups="false" disableUploadTimeout="true"
+                   acceptCount="100" scheme="https" secure="true"
+                   clientAuth="false" sslProtocol="TLSv1.2" sslEnabledProtocols="TLSv1.2" SSLEnabled="true"
+                   URIEncoding="UTF-8" keystorePass="<MY_CERTIFICATE_PASSWORD>"/>
+        -->
+
+        <Engine name="Standalone" defaultHost="localhost" debug="0">
+            <Host name="localhost" debug="0" appBase="webapps" unpackWARs="true" autoDeploy="false" startStopThreads="4">
+                <Context path="" docBase="../confluence" debug="0" reloadable="false" useHttpOnly="true">
+                    <!-- Logging configuration for Confluence is specified in confluence/WEB-INF/classes/log4j.properties -->
+                    <Manager pathname=""/>
+                    <Valve className="org.apache.catalina.valves.StuckThreadDetectionValve" threshold="60"/>
+                </Context>
+
+                <Context path="${confluence.context.path}/synchrony-proxy" docBase="../synchrony-proxy" debug="0"
+                         reloadable="false" useHttpOnly="true">
+                    <Valve className="org.apache.catalina.valves.StuckThreadDetectionValve" threshold="60"/>
+                </Context>
+            </Host>
+        </Engine>
+    </Service>
+</Server>

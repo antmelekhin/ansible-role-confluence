@@ -1,0 +1,24 @@
+---
+
+- name: 'Create Confluence group'
+  group:
+    name: '{{ confluence__group }}'
+
+- name: 'Create Confluence user'
+  user:
+    name: '{{ confluence__username }}'
+    group: '{{ confluence__group }}'
+    comment: 'Atlassian Confluence'
+    shell: /bin/bash
+    local: true
+  register: confluence__user_result
+
+- name: 'Create Confluence directories'
+  file:
+    path: '{{ item }}'
+    owner: '{{ confluence__username }}'
+    group: '{{ confluence__group }}'
+    state: directory
+  with_items:
+    - '{{ confluence__install_path }}'
+    - '{{ confluence__home_path }}'

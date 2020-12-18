@@ -1,0 +1,10 @@
+---
+# handlers file for confluence
+
+- name: 'Reload systemctl'
+  command: systemctl daemon-reload
+
+- name: 'Restart Confluence'
+  service:
+    name: confluence
+    state: restarted

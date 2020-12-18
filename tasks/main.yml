@@ -1,0 +1,11 @@
+---
+# tasks file for confluence
+
+- name: 'Include tasks for preparing to install Confluence'
+  include_tasks: 'pre-install.yml'
+
+- name: 'Include tasks for Installing Confluence'
+  include_tasks: 'install.yml'
+
+- name: 'Include tasks for Configure Confluence'
+  include_tasks: 'configure.yml'
