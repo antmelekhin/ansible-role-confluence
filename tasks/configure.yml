@@ -23,6 +23,8 @@
     group: '{{ confluence__group }}'
     mode: 0644
   with_items:
-    - { src: 'server.xml.j2', dest: '{{ confluence__install_path }}/conf/server.xml' }
-    - { src: 'confluence-init.properties.j2', dest: '{{ confluence__install_path }}/confluence/WEB-INF/classes/confluence-init.properties' }
+    - src: 'server.xml.j2'
+      dest: '{{ confluence__install_path }}/conf/server.xml'
+    - src: 'confluence-init.properties.j2'
+      dest: '{{ confluence__install_path }}/confluence/WEB-INF/classes/confluence-init.properties'
   notify: Restart Confluence
