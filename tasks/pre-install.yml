@@ -10,7 +10,6 @@
     group: '{{ confluence__group }}'
     comment: 'Atlassian Confluence'
     shell: /bin/bash
-    local: true
   register: confluence__user_result
 
 - name: 'Create Confluence directories'
@@ -19,6 +18,7 @@
     owner: '{{ confluence__username }}'
     group: '{{ confluence__group }}'
     state: directory
+    mode: 0755
   with_items:
     - '{{ confluence__install_path }}'
     - '{{ confluence__home_path }}'
