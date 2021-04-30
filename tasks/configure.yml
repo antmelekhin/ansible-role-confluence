@@ -7,13 +7,7 @@
     owner: '{{ confluence__username }}'
     group: '{{ confluence__group }}'
     mode: 0644
-  notify: Reload systemctl
-
-- name: 'Start Confluence'
-  service:
-    name: confluence
-    enabled: true
-    state: started
+  notify: Restart Confluence
 
 - name: 'Configure Confluence'
   template:
