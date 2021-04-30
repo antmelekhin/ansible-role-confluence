@@ -13,6 +13,10 @@ confluence__group: 'confluence'
 confluence__install_path: '/opt/atlassian/confluence'
 confluence__home_path: '/var/atlassian/application-data/confluence'
 
+# Confluence environment configuration.
+confluence__jvm_minimum_memory: '1024m'
+confluence__jvm_maximum_memory: '1024m'
+
 # Confluence proxy settings.
 confluence__tomcat_connector_proxyname: ''
 confluence__tomcat_connector_scheme: 'http'

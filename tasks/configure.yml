@@ -17,14 +17,18 @@
 
 - name: 'Configure Confluence'
   template:
-    src: '{{ item.src }}'
-    dest: '{{ item.dest }}'
+    src: 'server.xml.j2'
+    dest: '{{ confluence__install_path }}/conf/server.xml'
     owner: '{{ confluence__username }}'
     group: '{{ confluence__group }}'
     mode: 0644
-  with_items:
-    - src: 'server.xml.j2'
-      dest: '{{ confluence__install_path }}/conf/server.xml'
-    - src: 'confluence-init.properties.j2'
-      dest: '{{ confluence__install_path }}/confluence/WEB-INF/classes/confluence-init.properties'
+  notify: Restart Confluence
+
+- name: 'Configure Confluence environment'
+  template:
+    src: 'setenv.sh.j2'
+    dest: '{{ confluence__install_path }}/bin/setenv.sh'
+    owner: '{{ confluence__username }}'
+    group: '{{ confluence__group }}'
+    mode: 0755
   notify: Restart Confluence

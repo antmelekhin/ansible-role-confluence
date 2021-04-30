@@ -18,6 +18,8 @@ Ansible роль для установки и настройки Confluence.
 - `confluence__group` Unix группа пользователя (default: `confluence`).
 - `confluence__install_path` Каталог, в который будет установлено приложение (default: `/opt/atlassian/confluence`).
 - `confluence__home_path` Домашний каталог Confluence (default: `/var/atlassian/application-data/confluence`).
+- `confluence__jvm_minimum_memory` Минимальный объем памяти, используемый JVM (default: `1024m`).
+- `confluence__jvm_maximum_memory` Максимальный объем памяти, используемый JVM (default: `1024m`).
 - `confluence__tomcat_connector_proxyname` Fqdn имя сервера. Если обратный прокси не используется, то нужно эту переменную оставить без значения.
 - `confluence__tomcat_connector_scheme` Протокол.
 
