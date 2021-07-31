@@ -20,4 +20,4 @@ confluence__jvm_maximum_memory: '1024m'
 # Confluence proxy settings.
 confluence__tomcat_connector_proxyname: ''
 confluence__tomcat_connector_scheme: 'http'
-confluence__tomcat_connector_proxyport: '{{ (confluence__tomcat_connector_scheme|lower == "http")|ternary("80", "443") }}'
+confluence__tomcat_connector_proxyport: '{{ (confluence__tomcat_connector_scheme | lower == "http") | ternary("80", "443") }}'
