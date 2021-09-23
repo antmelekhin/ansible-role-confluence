@@ -18,3 +18,11 @@
   - name: 'Check url'
     uri:
       url: 'http://{{ ansible_host }}:8090'
+
+  - name: 'Check version'
+    command: grep ^version /opt/atlassian/confluence/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties
+    register: confluence__version
+
+  - name: 'Debug version'
+    debug:
+      var: confluence__version.stdout_lines
