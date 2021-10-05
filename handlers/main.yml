@@ -2,7 +2,7 @@
 # handlers file for confluence
 
 - name: 'Restart Confluence'
-  systemd:
+  ansible.builtin.systemd:
     name: confluence
     daemon_reload: true
     state: restarted

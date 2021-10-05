@@ -1,7 +1,7 @@
 ---
 
 - name: 'Download Confluence archive'
-  get_url:
+  ansible.builtin.get_url:
     url: '{{ confluence__archive_url }}'
     dest: '{{ confluence__user_result.home }}/{{ confluence__archive_url | basename }}'
     owner: '{{ confluence__username }}'
@@ -10,7 +10,7 @@
   register: confluence__archive_result
 
 - name: 'Extract Confluence archive'
-  unarchive:
+  ansible.builtin.unarchive:
     src: '{{ confluence__archive_result.dest }}'
     dest: '{{ confluence__install_path }}'
     extra_opts:

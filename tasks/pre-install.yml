@@ -1,11 +1,11 @@
 ---
 
 - name: 'Create Confluence group'
-  group:
+  ansible.builtin.group:
     name: '{{ confluence__group }}'
 
 - name: 'Create Confluence user'
-  user:
+  ansible.builtin.user:
     name: '{{ confluence__username }}'
     group: '{{ confluence__group }}'
     comment: 'Atlassian Confluence'
@@ -13,7 +13,7 @@
   register: confluence__user_result
 
 - name: 'Create Confluence directories'
-  file:
+  ansible.builtin.file:
     path: '{{ item }}'
     owner: '{{ confluence__username }}'
     group: '{{ confluence__group }}'
