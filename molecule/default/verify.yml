@@ -7,22 +7,24 @@
   tasks:
 
   - name: 'Gathering Service Facts'
-    service_facts:
+    ansible.builtin.service_facts:
 
   - name: 'Assert that confluence service is enabled and running'
-    assert:
+    ansible.builtin.assert:
       that:
         - ansible_facts.services['confluence.service'].state == 'running'
         - ansible_facts.services['confluence.service'].status == 'enabled'
 
   - name: 'Check url'
-    uri:
+    ansible.builtin.uri:
       url: 'http://{{ ansible_host }}:8090'
 
-  - name: 'Check version'
-    command: grep ^version /opt/atlassian/confluence/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties
-    register: confluence__version
+  - name: 'Check current Confluence version'
+    ansible.builtin.command:
+      cmd: grep -Po '(?<=^version=)\N*$' /opt/atlassian/confluence/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties
+    changed_when: false
+    register: confluence__version_check
 
-  - name: 'Debug version'
-    debug:
-      var: confluence__version.stdout_lines
+  - name: 'Version output'
+    ansible.builtin.debug:
+      var: confluence__version_check.stdout
