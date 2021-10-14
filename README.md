@@ -1,7 +1,7 @@
 Confluence
 ==========
 
-Ansible роль для установки и настройки Confluence.
+Ansible роль для установки, настройки и обновления [Confluence](https://www.atlassian.com/ru/software/confluence).
 
 Требования
 ----------
@@ -16,7 +16,7 @@ Ansible роль для установки и настройки Confluence.
 - `confluence__archive_url` Ссылка на скачивание архива с приложением.
 - `confluence__username` Unix имя пользователя (default: `confluence`).
 - `confluence__group` Unix группа пользователя (default: `confluence`).
-- `confluence__install_path` Каталог, в который будет установлено приложение (default: `/opt/atlassian/confluence`).
+- `confluence__root_path` Каталог, в который будет распакован архив и установлено приложение (default: `/opt/atlassian`).
 - `confluence__home_path` Домашний каталог Confluence (default: `/var/atlassian/application-data/confluence`).
 - `confluence__jvm_minimum_memory` Минимальный объем памяти, используемый JVM (default: `1024m`).
 - `confluence__jvm_maximum_memory` Максимальный объем памяти, используемый JVM (default: `1024m`).

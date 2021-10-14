@@ -1,0 +1,5 @@
+---
+# vars file for confluence
+
+confluence__install_path: '{{ confluence__root_path }}/{{ confluence__version }}'
+confluence__application_path: '{{ confluence__root_path }}/confluence'

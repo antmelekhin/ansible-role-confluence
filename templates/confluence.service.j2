@@ -7,9 +7,9 @@ After=network.target
 [Service]
 Type=forking
 User={{ confluence__username }}
-PIDFile={{ confluence__install_path }}/work/catalina.pid
-ExecStart={{ confluence__install_path }}/bin/start-confluence.sh
-ExecStop={{ confluence__install_path }}/bin/stop-confluence.sh
+PIDFile={{ confluence__application_path }}/work/catalina.pid
+ExecStart={{ confluence__application_path }}/bin/start-confluence.sh
+ExecStop={{ confluence__application_path }}/bin/stop-confluence.sh
 
 [Install]
 WantedBy=multi-user.target

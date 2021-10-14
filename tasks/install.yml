@@ -19,3 +19,9 @@
     owner: '{{ confluence__username }}'
     group: '{{ confluence__group }}'
   when: confluence__archive_result.changed
+
+- name: 'Create symbolic link for Confluence'
+  ansible.builtin.file:
+    src: '{{ confluence__install_path }}'
+    dest: '{{ confluence__application_path }}'
+    state: link

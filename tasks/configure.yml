@@ -12,7 +12,7 @@
 - name: 'Configure Confluence'
   ansible.builtin.template:
     src: 'server.xml.j2'
-    dest: '{{ confluence__install_path }}/conf/server.xml'
+    dest: '{{ confluence__application_path }}/conf/server.xml'
     owner: '{{ confluence__username }}'
     group: '{{ confluence__group }}'
     mode: 0644
@@ -21,7 +21,7 @@
 - name: 'Configure Confluence environment'
   ansible.builtin.template:
     src: 'setenv.sh.j2'
-    dest: '{{ confluence__install_path }}/bin/setenv.sh'
+    dest: '{{ confluence__application_path }}/bin/setenv.sh'
     owner: '{{ confluence__username }}'
     group: '{{ confluence__group }}'
     mode: 0755
