@@ -12,7 +12,7 @@ Ansible роль для установки, настройки и обновле
 Используемые переменные
 -----------------------
 
-- `confluence__version` Версия Confluence для установки (default: `7.4.5`).
+- `confluence__version` Версия Confluence для установки (default: `7.13.1`).
 - `confluence__archive_url` Ссылка на скачивание архива с приложением.
 - `confluence__username` Unix имя пользователя (default: `confluence`).
 - `confluence__group` Unix группа пользователя (default: `confluence`).
