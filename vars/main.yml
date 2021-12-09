@@ -1,5 +1,5 @@
 ---
-# vars file for confluence
 
+confluence__download_url: 'https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-{{ confluence__version }}.tar.gz'
 confluence__install_path: '{{ confluence__root_path }}/{{ confluence__version }}'
 confluence__application_path: '{{ confluence__root_path }}/confluence'
