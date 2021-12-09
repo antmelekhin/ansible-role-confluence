@@ -7,6 +7,12 @@
     owner: '{{ confluence__username }}'
     group: '{{ confluence__group }}'
     mode: 0644
+  register: confluence__service
+
+- name: 'Reload systemd daemon if unit file is changed'
+  ansible.builtin.systemd:
+    daemon_reload: true
+  when: confluence__service is changed
   notify: Restart Confluence
 
 - name: 'Configure Confluence'
@@ -26,3 +32,9 @@
     group: '{{ confluence__group }}'
     mode: 0755
   notify: Restart Confluence
+
+- name: 'Ensure Confluence is running and enabled at boot'
+  ansible.builtin.systemd:
+    name: confluence
+    state: started
+    enabled: true
