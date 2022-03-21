@@ -1,5 +1,4 @@
 ---
-
 - name: 'Create Confluence unit for SystemD'
   ansible.builtin.template:
     src: confluence.service.j2

@@ -1,5 +1,4 @@
 ---
-
 - name: 'Create Confluence group'
   ansible.builtin.group:
     name: '{{ confluence__group }}'

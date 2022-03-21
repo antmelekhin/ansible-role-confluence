@@ -1,5 +1,4 @@
 ---
-
 - name: 'Check current Confluence version'
   ansible.builtin.command:
     cmd: grep -Po '(?<=^version=)\N*$' '{{ confluence__application_path }}/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties'
