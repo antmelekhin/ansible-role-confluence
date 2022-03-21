@@ -1,6 +1,7 @@
 ---
 # See available releases: https://confluence.atlassian.com/doc/confluence-7-13-release-notes-1044114085.html
 confluence__version: '7.13.1'
+confluence__download_url: 'https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-{{ confluence__version }}.tar.gz'
 
 # Confluence user.
 confluence__username: 'confluence'

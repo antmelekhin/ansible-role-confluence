@@ -13,6 +13,7 @@ Ansible роль для установки, настройки и обновле
 -----------------------
 
 - `confluence__version` Версия Confluence для установки (default: `7.13.1`).
+- `confluence__download_url` Ссылка на скачивание архива с приложением.
 - `confluence__username` Unix имя пользователя (default: `confluence`).
 - `confluence__group` Unix группа пользователя (default: `confluence`).
 - `confluence__root_path` Каталог, в который будет распакован архив и установлено приложение (default: `/opt/atlassian`).
