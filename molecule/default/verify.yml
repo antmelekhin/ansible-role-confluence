@@ -2,6 +2,9 @@
 - name: 'Verify'
   hosts: all
   gather_facts: false
+  vars:
+    confluence_path: '/opt/atlassian/confluence/current'
+
   tasks:
     - name: 'Gathering Service Facts'
       ansible.builtin.service_facts:
@@ -18,10 +21,10 @@
 
     - name: 'Check current Confluence version'
       ansible.builtin.command:
-        cmd: grep -Po '(?<=^version=)\N*$' /opt/atlassian/confluence/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties
+        cmd: grep -Po '(?<=^version=)\N*$' '{{ confluence_path }}/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties'
       changed_when: false
-      register: confluence__version_check
+      register: _confluence_version_check
 
     - name: 'Version output'
       ansible.builtin.debug:
-        var: confluence__version_check.stdout
+        var: _confluence_version_check.stdout
