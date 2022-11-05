@@ -1,26 +1,26 @@
 ---
 - name: 'Check current Confluence version'
   ansible.builtin.command:
-    cmd: grep -Po '(?<=^version=)\N*$' '{{ confluence__application_path }}/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties'
+    cmd: grep -Po '(?<=^version=)\N*$' '{{ _confluence_application_path }}/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties'
   failed_when: false
   changed_when: false
-  register: confluence__version_check
+  register: _confluence_version_check
 
 - name: 'Download and unarchive Confluence'
   ansible.builtin.unarchive:
-    src: '{{ confluence__download_url }}'
-    dest: '{{ confluence__install_path }}'
+    src: '{{ confluence_download_url }}'
+    dest: '{{ _confluence_install_path }}'
     extra_opts:
       - --strip-components=1
     remote_src: true
-    owner: '{{ confluence__username }}'
-    group: '{{ confluence__group }}'
+    owner: '{{ confluence_username }}'
+    group: '{{ confluence_group }}'
   when:
-    - confluence__version_check.stdout is not defined or
-      confluence__version not in confluence__version_check.stdout
+    - _confluence_version_check.stdout is not defined or
+      confluence_version not in _confluence_version_check.stdout
 
 - name: 'Create symbolic link for Confluence'
   ansible.builtin.file:
-    src: '{{ confluence__install_path }}'
-    dest: '{{ confluence__application_path }}'
+    src: '{{ _confluence_install_path }}'
+    dest: '{{ _confluence_application_path }}'
     state: link

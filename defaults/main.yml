@@ -1,21 +1,21 @@
 ---
 # See available releases: https://confluence.atlassian.com/doc/confluence-7-13-release-notes-1044114085.html
-confluence__version: '7.13.1'
-confluence__download_url: 'https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-{{ confluence__version }}.tar.gz'
+confluence_version: '7.13.1'
+confluence_download_url: 'https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-{{ confluence_version }}.tar.gz'
 
 # Confluence user.
-confluence__username: 'confluence'
-confluence__group: 'confluence'
+confluence_username: 'confluence'
+confluence_group: 'confluence'
 
 # Confluence directories.
-confluence__root_path: '/opt/atlassian'
-confluence__home_path: '/var/atlassian/application-data/confluence'
+confluence_root_path: '/opt/atlassian/confluence'
+confluence_home_path: '/var/atlassian/application-data/confluence'
 
 # Confluence environment configuration.
-confluence__jvm_minimum_memory: '1024m'
-confluence__jvm_maximum_memory: '2048m'
+confluence_jvm_minimum_memory: '1024m'
+confluence_jvm_maximum_memory: '2048m'
 
 # Confluence proxy settings.
-confluence__tomcat_connector_proxyname: ''
-confluence__tomcat_connector_scheme: 'http'
-confluence__tomcat_connector_proxyport: '{{ (confluence__tomcat_connector_scheme | lower == "http") | ternary("80", "443") }}'
+confluence_tomcat_connector_proxyname: ''
+confluence_tomcat_connector_scheme: 'http'
+confluence_tomcat_connector_proxyport: '{{ (confluence_tomcat_connector_scheme | lower == "http") | ternary("80", "443") }}'

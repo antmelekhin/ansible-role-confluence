@@ -6,22 +6,22 @@ Ansible роль для установки, настройки и обновле
 Требования
 ----------
 
-- Поддерживаемая версия Ansible: 2.7 и выше.
+- Поддерживаемая версия Ansible: 2.9 и выше.
 - Список поддерживаемых платформ описан в файле метаданных роли.
 
 Используемые переменные
 -----------------------
 
-- `confluence__version` Версия Confluence для установки (default: `7.13.1`).
-- `confluence__download_url` Ссылка на скачивание архива с приложением.
-- `confluence__username` Unix имя пользователя (default: `confluence`).
-- `confluence__group` Unix группа пользователя (default: `confluence`).
-- `confluence__root_path` Каталог, в который будет распакован архив и установлено приложение (default: `/opt/atlassian`).
-- `confluence__home_path` Домашний каталог Confluence (default: `/var/atlassian/application-data/confluence`).
-- `confluence__jvm_minimum_memory` Минимальный объем памяти, используемый JVM (default: `1024m`).
-- `confluence__jvm_maximum_memory` Максимальный объем памяти, используемый JVM (default: `1024m`).
-- `confluence__tomcat_connector_proxyname` Fqdn имя сервера. Если обратный прокси не используется, то нужно эту переменную оставить без значения.
-- `confluence__tomcat_connector_scheme` Протокол.
+- `confluence_version` Версия Confluence для установки (default: `7.13.1`).
+- `confluence_download_url` Ссылка на скачивание архива с приложением.
+- `confluence_username` Unix имя пользователя (default: `confluence`).
+- `confluence_group` Unix группа пользователя (default: `confluence`).
+- `confluence_root_path` Каталог, в который будет распакован архив и установлено приложение (default: `/opt/atlassian/confluence`).
+- `confluence_home_path` Домашний каталог Confluence (default: `/var/atlassian/application-data/confluence`).
+- `confluence_jvm_minimum_memory` Минимальный объем памяти, используемый JVM (default: `1024m`).
+- `confluence_jvm_maximum_memory` Максимальный объем памяти, используемый JVM (default: `1024m`).
+- `confluence_tomcat_connector_proxyname` Fqdn имя сервера. Если обратный прокси не используется, то нужно эту переменную оставить без значения.
+- `confluence_tomcat_connector_scheme` Протокол.
 
   Доступные значения:
   - `http` (default)
@@ -29,9 +29,9 @@ Ansible роль для установки, настройки и обновле
 
     **Внимание** При использовании `https` протокола нужно установить SSL сертификат на сервере с обратным прокси.
 
-- `confluence__tomcat_connector_proxyport` Порт сервера (default: `80` или `443`).
-  - `80` при установке переменной `confluence__tomcat_connector_scheme` в значение `http`.
-  - `443` при установке переменной `confluence__tomcat_connector_scheme` в значение `https`.
+- `confluence_tomcat_connector_proxyport` Порт сервера (default: `80` или `443`).
+  - `80` при установке переменной `confluence_tomcat_connector_scheme` в значение `http`.
+  - `443` при установке переменной `confluence_tomcat_connector_scheme` в значение `https`.
 
 Зависимости
 -----------
@@ -70,4 +70,4 @@ MIT
 Информация об авторе
 --------------------
 
-Мелехин Антон, ООО "ЖИЛИЩНАЯ ЭКОСИСТЕМА ВТБ".
+Мелехин Антон.

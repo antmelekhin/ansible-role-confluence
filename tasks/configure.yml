@@ -3,32 +3,32 @@
   ansible.builtin.template:
     src: confluence.service.j2
     dest: /etc/systemd/system/confluence.service
-    owner: '{{ confluence__username }}'
-    group: '{{ confluence__group }}'
+    owner: '{{ confluence_username }}'
+    group: '{{ confluence_group }}'
     mode: 0644
-  register: confluence__service
+  register: _confluence_service
 
 - name: 'Reload systemd daemon if unit file is changed'
   ansible.builtin.systemd:
     daemon_reload: true
-  when: confluence__service is changed
+  when: _confluence_service is changed
   notify: Restart Confluence
 
 - name: 'Configure Confluence'
   ansible.builtin.template:
     src: 'server.xml.j2'
-    dest: '{{ confluence__application_path }}/conf/server.xml'
-    owner: '{{ confluence__username }}'
-    group: '{{ confluence__group }}'
+    dest: '{{ _confluence_application_path }}/conf/server.xml'
+    owner: '{{ confluence_username }}'
+    group: '{{ confluence_group }}'
     mode: 0644
   notify: Restart Confluence
 
 - name: 'Configure Confluence environment'
   ansible.builtin.template:
     src: 'setenv.sh.j2'
-    dest: '{{ confluence__application_path }}/bin/setenv.sh'
-    owner: '{{ confluence__username }}'
-    group: '{{ confluence__group }}'
+    dest: '{{ _confluence_application_path }}/bin/setenv.sh'
+    owner: '{{ confluence_username }}'
+    group: '{{ confluence_group }}'
     mode: 0755
   notify: Restart Confluence
 

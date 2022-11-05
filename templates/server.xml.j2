@@ -1,10 +1,10 @@
 {{ ansible_managed | comment('xml') }}
 <Server port="8000" shutdown="SHUTDOWN" debug="0">
     <Service name="Tomcat-Standalone">
-        {% if confluence__tomcat_connector_proxyname is defined and confluence__tomcat_connector_proxyname | length -%}
+        {% if confluence_tomcat_connector_proxyname is defined and confluence_tomcat_connector_proxyname | length -%}
         <!--
         ==============================================================================================================
-        {{ confluence__tomcat_connector_scheme | upper }} - Proxying Confluence via Apache or Nginx over {{ confluence__tomcat_connector_scheme | upper }}
+        {{ confluence_tomcat_connector_scheme | upper }} - Proxying Confluence via Apache or Nginx over {{ confluence_tomcat_connector_scheme | upper }}
 
         For more information see:
             Apache - https://confluence.atlassian.com/x/4xQLM
@@ -22,10 +22,10 @@
             debug="0"
             URIEncoding="UTF-8"
             protocol="org.apache.coyote.http11.Http11NioProtocol"
-            scheme="{{ confluence__tomcat_connector_scheme | lower }}"
-            secure="{{ (confluence__tomcat_connector_scheme | lower == "http") | ternary("false", "true") }}"
-            proxyName="{{ confluence__tomcat_connector_proxyname }}"
-            proxyPort="{{ confluence__tomcat_connector_proxyport }}"/>
+            scheme="{{ confluence_tomcat_connector_scheme | lower }}"
+            secure="{{ (confluence_tomcat_connector_scheme | lower == "http") | ternary("false", "true") }}"
+            proxyName="{{ confluence_tomcat_connector_proxyname }}"
+            proxyPort="{{ confluence_tomcat_connector_proxyport }}"/>
         {% else -%}
 
         <!--

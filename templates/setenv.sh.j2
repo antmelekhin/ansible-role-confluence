@@ -1,10 +1,10 @@
 {{ ansible_managed | comment }}
 # See the CATALINA_OPTS below for tuning the JVM arguments used to start Confluence.
 
-CONFLUENCE_HOME="{{ confluence__home_path }}"
+CONFLUENCE_HOME="{{ confluence_home_path }}"
 
-JVM_MINIMUM_MEMORY="{{ confluence__jvm_minimum_memory }}"
-JVM_MAXIMUM_MEMORY="{{ confluence__jvm_maximum_memory }}"
+JVM_MINIMUM_MEMORY="{{ confluence_jvm_minimum_memory }}"
+JVM_MAXIMUM_MEMORY="{{ confluence_jvm_maximum_memory }}"
 
 echo "If you encounter issues starting up Confluence, please see the Installation guide at http://confluence.atlassian.com/display/DOC/Confluence+Installation+Guide"
 
