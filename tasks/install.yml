@@ -14,7 +14,6 @@
         dest: '/tmp//atlassian-confluence-{{ confluence_version }}.tar.gz'
         mode: 0644
       delegate_to: localhost
-      check_mode: false
 
     - name: 'Unarchive Confluence'
       ansible.builtin.unarchive:
@@ -24,9 +23,9 @@
         group: '{{ confluence_group }}'
         extra_opts:
           - --strip-components=1
-      when: not ansible_check_mode
       become: true
   when:
+    - not ansible_check_mode
     - _confluence_version_check.stdout is not defined or
       confluence_version not in _confluence_version_check.stdout
 
