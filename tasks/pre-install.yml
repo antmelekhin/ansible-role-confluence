@@ -1,23 +1,28 @@
 ---
-- name: 'Create Confluence group'
-  ansible.builtin.group:
-    name: '{{ confluence_group }}'
+- name: 'Prepare for install Confluence'
+  block:
+    - name: 'Create Confluence group'
+      ansible.builtin.group:
+        name: '{{ confluence_group }}'
 
-- name: 'Create Confluence user'
-  ansible.builtin.user:
-    name: '{{ confluence_username }}'
-    group: '{{ confluence_group }}'
-    comment: 'Atlassian Confluence'
-    shell: /bin/bash
-  register: _confluence_user_result
+    - name: 'Create Confluence user'
+      ansible.builtin.user:
+        name: '{{ confluence_username }}'
+        group: '{{ confluence_group }}'
+        comment: 'Atlassian Confluence'
+        shell: /bin/bash
+      register: _confluence_user_result
 
-- name: 'Create Confluence directories'
-  ansible.builtin.file:
-    path: '{{ item }}'
-    owner: '{{ confluence_username }}'
-    group: '{{ confluence_group }}'
-    state: directory
-    mode: 0755
-  with_items:
-    - '{{ _confluence_install_path }}'
-    - '{{ confluence_home_path }}'
+    - name: 'Create Confluence directories'
+      ansible.builtin.file:
+        path: '{{ confluence_path }}'
+        owner: '{{ confluence_username }}'
+        group: '{{ confluence_group }}'
+        state: directory
+        mode: 0755
+      loop:
+        - '{{ _confluence_install_path }}'
+        - '{{ confluence_home_path }}'
+      loop_control:
+        loop_var: confluence_path
+  become: true

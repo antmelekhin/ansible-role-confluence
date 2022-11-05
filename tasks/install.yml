@@ -7,14 +7,25 @@
   register: _confluence_version_check
 
 - name: 'Download and unarchive Confluence'
-  ansible.builtin.unarchive:
-    src: '{{ confluence_download_url }}'
-    dest: '{{ _confluence_install_path }}'
-    extra_opts:
-      - --strip-components=1
-    remote_src: true
-    owner: '{{ confluence_username }}'
-    group: '{{ confluence_group }}'
+  block:
+    - name: 'Download Confluence archive to local folder'
+      ansible.builtin.get_url:
+        url: '{{ confluence_download_url }}'
+        dest: '/tmp//atlassian-confluence-{{ confluence_version }}.tar.gz'
+        mode: 0644
+      delegate_to: localhost
+      check_mode: false
+
+    - name: 'Unarchive Confluence'
+      ansible.builtin.unarchive:
+        src: '/tmp/atlassian-confluence-{{ confluence_version }}.tar.gz'
+        dest: '{{ _confluence_install_path }}'
+        owner: '{{ confluence_username }}'
+        group: '{{ confluence_group }}'
+        extra_opts:
+          - --strip-components=1
+      when: not ansible_check_mode
+      become: true
   when:
     - _confluence_version_check.stdout is not defined or
       confluence_version not in _confluence_version_check.stdout
@@ -24,3 +35,5 @@
     src: '{{ _confluence_install_path }}'
     dest: '{{ _confluence_application_path }}'
     state: link
+  when: not ansible_check_mode
+  become: true
