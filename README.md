@@ -21,6 +21,13 @@ Ansible роль для установки, настройки и обновле
 - `confluence_home_path` Домашний каталог Confluence (default: `/var/atlassian/application-data/confluence`).
 - `confluence_jvm_minimum_memory` Минимальный объем памяти, используемый JVM (default: `1024m`).
 - `confluence_jvm_maximum_memory` Максимальный объем памяти, используемый JVM (default: `1024m`).
+- Настройки подключения к базе данных, прежде чем включать ознакомтесь с [документацией](https://confluence.atlassian.com/conf713/configuring-a-datasource-connection-1077914464.html).
+  - `confluence_db_configuration` Настройка подключения к БД (default: `false`).
+  - `confluence_db_address` IP адрес или DNS имя сервера БД.
+  - `confluence_db_port` Порт БД.
+  - `confluence_db_name` Имя БД.
+  - `confluence_db_username` Имя пользователя БД.
+  - `confluence_db_password` Пароль пользователя БД.
 - `confluence_tomcat_connector_proxyname` Fqdn имя сервера. Если обратный прокси не используется, то нужно эту переменную оставить без значения.
 - `confluence_tomcat_connector_scheme` Протокол.
 
