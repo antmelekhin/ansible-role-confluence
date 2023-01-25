@@ -10,14 +10,14 @@
   block:
     - name: 'Download Confluence archive to local folder'
       ansible.builtin.get_url:
-        url: '{{ confluence_download_url }}'
-        dest: '/tmp//atlassian-confluence-{{ confluence_version }}.tar.gz'
+        url: '{{ confluence_download_url }}/{{ confluence_archive_name }}'
+        dest: '/tmp/{{ confluence_archive_name }}'
         mode: 0644
       delegate_to: localhost
 
     - name: 'Unarchive Confluence'
       ansible.builtin.unarchive:
-        src: '/tmp/atlassian-confluence-{{ confluence_version }}.tar.gz'
+        src: '/tmp/{{ confluence_archive_name }}'
         dest: '{{ _confluence_install_path }}'
         owner: '{{ confluence_username }}'
         group: '{{ confluence_group }}'
