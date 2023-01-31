@@ -7,14 +7,13 @@ Requirements
 ------------
 
 - Supported version of Ansible: 2.9 and highter.
-- `gnu-tar` on Mac as deployer host (`brew install gnu-tar`).
 - List of all supported platforms described in role meta.
 
 Role Variables
 --------------
 
-- `confluence_version` The Specific version of Confluence to download (default: `7.13.1`).
-- `confluence_archive_name` Confluence archive name (default: `atlassian-confluence-{{ confluence_version }}.tar.gz`).
+- `confluence_version` The specific version of Confluence to download (default: `7.13.1`).
+- `confluence_archive_name` Confluence archive name (default: `atlassian-confluence-7.13.1.tar.gz`).
 - `confluence_download_url` URL to download an archive with Confluence (default: `https://www.atlassian.com/software/confluence/downloads/binary`).
 - `confluence_username` and `confluence_group` Unix username and group (default: `confluence`).
 - `confluence_root_path` Path to Confluence installation directory (default: `/opt/atlassian/confluence`).
@@ -66,7 +65,7 @@ Example Playbook
 
       roles:
         - role: geerlingguy.java
-        - role: ansible-role-confluence
+        - role: antmelekhin.confluence
     ```
 
 License
