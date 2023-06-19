@@ -2,6 +2,7 @@
 - name: 'Restart Confluence'
   ansible.builtin.systemd:
     name: confluence
+    daemon_reload: true
     state: restarted
   when: not ansible_check_mode
   become: true
