@@ -1,5 +1,6 @@
 ---
 - name: 'Prepare for install Confluence'
+  become: true
   block:
     - name: 'Create Confluence group'
       ansible.builtin.group:
@@ -25,4 +26,3 @@
         - '{{ confluence_home_path }}'
       loop_control:
         loop_var: confluence_path
-  become: true
