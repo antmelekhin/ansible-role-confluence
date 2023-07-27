@@ -1,7 +1,7 @@
 {{ ansible_managed | comment('xml') }}
 <Server port="8000" shutdown="SHUTDOWN" debug="0">
     <Service name="Tomcat-Standalone">
-        {% if confluence_tomcat_connector_proxyname is defined and confluence_tomcat_connector_proxyname | length -%}
+        {% if confluence_tomcat_connector_proxyname | length -%}
         <!--
         ==============================================================================================================
         {{ confluence_tomcat_connector_scheme | upper }} - Proxying Confluence via Apache or Nginx over {{ confluence_tomcat_connector_scheme | upper }}
