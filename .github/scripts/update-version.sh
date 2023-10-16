@@ -30,41 +30,41 @@ fi
 sed -i '' "s/_version:.*$/_version: '${LATEST_VERSION}'/" 'defaults/main.yml'
 sed -i '' "s/${CURRENT_VERSION}/${LATEST_VERSION}/" 'README.md'
 
-# # Repository variables
-# REPO_NAME=$(git config --get remote.origin.url | sed -e 's|^https://github.com/||')
-# UPDATE_VERSION_BRANCH="update-to-${LATEST_VERSION}"
-# UPDATE_VERSION_COMMIT="fix(version): jira updated to \`${LATEST_VERSION}\` release"
+# Repository variables
+REPO_NAME=$(git config --get remote.origin.url | sed -e 's|^https://github.com/||')
+UPDATE_VERSION_BRANCH="update-to-${LATEST_VERSION}"
+UPDATE_VERSION_COMMIT="fix(version): jira updated to \`${LATEST_VERSION}\` release"
 
-# # Create an update branch
-# REMOTE_BRANCH="$(curl --silent https://api.github.com/repos/${REPO_NAME}/branches/${UPDATE_VERSION_BRANCH} | jq -r .name)"
+# Create an update branch
+REMOTE_BRANCH="$(curl --silent https://api.github.com/repos/${REPO_NAME}/branches/${UPDATE_VERSION_BRANCH} | jq -r .name)"
 
-# if [ "${REMOTE_BRANCH}" == null ] ; then
-#     git config user.name "${GIT_USER}"
-#     git config user.email "${GIT_MAIL}"
-#     git checkout -b "${UPDATE_VERSION_BRANCH}"
+if [ "${REMOTE_BRANCH}" == null ] ; then
+    git config user.name "${GIT_USER}"
+    git config user.email "${GIT_MAIL}"
+    git checkout -b "${UPDATE_VERSION_BRANCH}"
 
-#     # Push new version
-#     git add defaults/main.yml README.md
-#     git commit --signoff -m "${UPDATE_VERSION_COMMIT}"
+    # Push new version
+    git add defaults/main.yml README.md
+    git commit --signoff -m "${UPDATE_VERSION_COMMIT}"
     
-#     echo -e "${GREEN}Pushing to ${UPDATE_VERSION_BRANCH} branch.${NO_COLOR}"
-#     if ! git push "https://${GITHUB_TOKEN}:@github.com/${REPO_NAME}" --set-upstream "${UPDATE_VERSION_BRANCH}"; then
-#         echo -e "${RED}Branch push failed.${NO_COLOR}"
-#         exit 1
-#     fi
-# else
-#     echo -e "${YELLOW}Branch is already on remote.${NO_COLOR}"
-# fi
+    echo -e "${GREEN}Pushing to ${UPDATE_VERSION_BRANCH} branch.${NO_COLOR}"
+    if ! git push "https://${GITHUB_TOKEN}:@github.com/${REPO_NAME}" --set-upstream "${UPDATE_VERSION_BRANCH}"; then
+        echo -e "${RED}Branch push failed.${NO_COLOR}"
+        exit 1
+    fi
+else
+    echo -e "${YELLOW}Branch is already on remote.${NO_COLOR}"
+fi
 
-# # Create Pull Request
-# RELEASE_NOTES="$(echo $APP_JSON | jq -r '.releaseNotes')"
-# PR_MESSAGE="Atlassian released a new LTS version of [Confluence](${RELEASE_NOTES}) - **${LATEST_VERSION}**!\n\nThis automated PR updates code to bring new version into repository."
-# PR_JSON="$(printf '{"title":"%s","body":"%s","head":"%s","base":"%s"}' "${UPDATE_VERSION_COMMIT}" "${PR_MESSAGE}" "${UPDATE_VERSION_BRANCH}" "main")"
+# Create Pull Request
+RELEASE_NOTES="$(echo $APP_JSON | jq -r '.releaseNotes')"
+PR_MESSAGE="Atlassian released a new LTS version of [Confluence](${RELEASE_NOTES}) - **${LATEST_VERSION}**!\n\nThis automated PR updates code to bring new version into repository."
+PR_JSON="$(printf '{"title":"%s","body":"%s","head":"%s","base":"%s"}' "${UPDATE_VERSION_COMMIT}" "${PR_MESSAGE}" "${UPDATE_VERSION_BRANCH}" "main")"
 
-# curl -L \
-#   -X POST \
-#   -H "Accept: application/vnd.github+json" \
-#   -H "Authorization: Bearer ${GITHUB_TOKEN}"\
-#   -H "X-GitHub-Api-Version: 2022-11-28" \
-#   "https://api.github.com/repos/${REPO_NAME}/pulls" \
-#   -d "${PR_JSON}"
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer ${GITHUB_TOKEN}"\
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  "https://api.github.com/repos/${REPO_NAME}/pulls" \
+  -d "${PR_JSON}"
