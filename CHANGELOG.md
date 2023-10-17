@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.0.2](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.1...v1.0.2) (2023-10-17)
+
+
+### Continuous Integration
+
+* add release type improv ([882adc7](https://github.com/antmelekhin/ansible-role-confluence/commit/882adc79aba47dea73b3aabb3452840875afb4d2))
+* add script and workflow for update version ([#5](https://github.com/antmelekhin/ansible-role-confluence/issues/5)) ([b8cffe7](https://github.com/antmelekhin/ansible-role-confluence/commit/b8cffe7203584b716e3048d6030406374ad3db9e))
+
+
+### Fixes
+
+* **version:** confluence updated to `8.5.2` release ([#6](https://github.com/antmelekhin/ansible-role-confluence/issues/6)) ([289e303](https://github.com/antmelekhin/ansible-role-confluence/commit/289e30390f82a5e4d383c559e773d681b32b6854))
+
+
+### Styles
+
+* add quotes in notify name ([353c5a0](https://github.com/antmelekhin/ansible-role-confluence/commit/353c5a088214746edf4140562495271c4b34959b))
+* fix jinja2 statement ([8942364](https://github.com/antmelekhin/ansible-role-confluence/commit/8942364c56ae81921c997561a88dbde89e5a03da))
+
+
+### Tests
+
+* add `tzdata-java` package ([eb78bb0](https://github.com/antmelekhin/ansible-role-confluence/commit/eb78bb0b1f32cd4562219f17eff57cea6b6c2def))
+
 ## [1.0.1](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.0...v1.0.1) (2023-06-20)
 
 
