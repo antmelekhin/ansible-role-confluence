@@ -29,6 +29,15 @@
         mode: 0755
       notify: 'Restart Confluence'
 
+    - name: 'Configure Confluence home'
+      ansible.builtin.template:
+        src: 'confluence-init.properties.j2'
+        dest: '{{ _confluence_application_path }}/confluence/WEB-INF/classes/confluence-init.properties'
+        owner: '{{ confluence_username }}'
+        group: '{{ confluence_group }}'
+        mode: 0644
+      notify: 'Restart Confluence'
+
     - name: 'Configure Confluence database connection'
       ansible.builtin.blockinfile:
         path: '{{ _confluence_application_path }}/confluence/WEB-INF/web.xml'
