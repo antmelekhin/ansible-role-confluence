@@ -13,7 +13,7 @@ confluence_home_path: '/var/atlassian/application-data/confluence'
 
 # Confluence environment configuration.
 confluence_jvm_minimum_memory: '1024m'
-confluence_jvm_maximum_memory: '2048m'
+confluence_jvm_maximum_memory: '1024m'
 
 # Confluence database connection settings.
 confluence_db_configuration: false
