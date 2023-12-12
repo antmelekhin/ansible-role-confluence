@@ -21,8 +21,8 @@ Requirements
 Role Variables
 --------------
 
-- `confluence_version` The specific version of Confluence to download (default: `8.5.3`).
-- `confluence_archive_name` Confluence archive name (default: `atlassian-confluence-8.5.3.tar.gz`).
+- `confluence_version` The specific version of Confluence to download (default: `8.5.4`).
+- `confluence_archive_name` Confluence archive name (default: `atlassian-confluence-8.5.4.tar.gz`).
 - `confluence_download_url` URL to download an archive with Confluence (default: `https://www.atlassian.com/software/confluence/downloads/binary`).
 - `confluence_username` and `confluence_group` Unix username and group (default: `confluence`).
 - `confluence_root_path` Path to Confluence installation directory (default: `/opt/atlassian/confluence`).
