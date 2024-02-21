@@ -1,9 +1,9 @@
 ---
-- name: 'Include tasks for preparing to install Confluence'
+- name: 'Include tasks to prepare to install Confluence'
   ansible.builtin.import_tasks: 'pre-install.yml'
 
-- name: 'Include tasks for Installing Confluence'
+- name: 'Include tasks to install Confluence'
   ansible.builtin.import_tasks: 'install.yml'
 
-- name: 'Include tasks for Configure Confluence'
+- name: 'Include tasks to configure Confluence'
   ansible.builtin.import_tasks: 'configure.yml'

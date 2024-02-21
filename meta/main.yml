@@ -2,7 +2,7 @@
 galaxy_info:
   author: antmelekhin
   role_name: confluence
-  description: An Ansible role for install, configure and update Confluence.
+  description: An Ansible role to install, configure and update Confluence.
 
   license: MIT
 

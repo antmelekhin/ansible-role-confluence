@@ -1,7 +1,7 @@
 Confluence
 ==========
 
-An Ansible role for install, configure and update [Confluence](https://www.atlassian.com/ru/software/confluence).
+An Ansible role to install, configure and update [Confluence](https://www.atlassian.com/ru/software/confluence).
 
 Requirements
 ------------
