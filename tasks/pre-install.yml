@@ -1,5 +1,5 @@
 ---
-- name: 'Prepare for install Confluence'
+- name: 'Prepare to install Confluence'
   become: true
   block:
     - name: 'Create Confluence group'
