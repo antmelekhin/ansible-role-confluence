@@ -12,7 +12,6 @@
         group: '{{ confluence_group }}'
         comment: 'Atlassian Confluence'
         shell: /bin/bash
-      register: _confluence_user_result
 
     - name: 'Create Confluence directories'
       ansible.builtin.file:
