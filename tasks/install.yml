@@ -4,13 +4,13 @@
     cmd: grep -Po '(?<=^version=)\N*$' '{{ _confluence_application_path }}/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties'
   failed_when: false
   changed_when: false
-  register: _confluence_version_check
+  register: __confluence_version_check
 
 - name: 'Download and unarchive Confluence'
   when:
     - not ansible_check_mode
-    - _confluence_version_check.stdout is not defined or
-      confluence_version not in _confluence_version_check.stdout
+    - __confluence_version_check.stdout is not defined or
+      confluence_version not in __confluence_version_check.stdout
   block:
     - name: 'Download Confluence archive to local folder'
       ansible.builtin.get_url:
