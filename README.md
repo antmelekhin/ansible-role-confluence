@@ -71,12 +71,11 @@ Example Playbook
 
     ```yaml
     ---
-
     - name: Setup Confluence
       hosts: confluence
 
       roles:
-        - role: geerlingguy.java
+        - role: antmelekhin.java
         - role: antmelekhin.confluence
     ```
 
