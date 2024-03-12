@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.0.7](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.6...v1.0.7) (2024-03-12)
+
+
+### Continuous Integration
+
+* update `checkout` action version ([8858838](https://github.com/antmelekhin/ansible-role-confluence/commit/885883840a0944f8c98cb6bbd6c429d2feffb17a))
+* update test matrix ([3efc79e](https://github.com/antmelekhin/ansible-role-confluence/commit/3efc79eaaa1d1db98c996d78caa933548c05f373))
+
+
+### Documentation
+
+* update supported os versions ([42deed0](https://github.com/antmelekhin/ansible-role-confluence/commit/42deed090f680f2436f6f6684fad16b6ba228233))
+
+
+### Fixes
+
+* **version:** confluence updated to `8.5.7` release ([#12](https://github.com/antmelekhin/ansible-role-confluence/issues/12)) ([ba415b6](https://github.com/antmelekhin/ansible-role-confluence/commit/ba415b6d5add5a0deb80a3de6d3aa2a187d0c13a))
+
+
+### Styles
+
+* add empty line after ansible comment ([8065874](https://github.com/antmelekhin/ansible-role-confluence/commit/8065874ed04586edb2b342a64d12103527679521))
+* rename some task names and minor changes ([#11](https://github.com/antmelekhin/ansible-role-confluence/issues/11)) ([bda7386](https://github.com/antmelekhin/ansible-role-confluence/commit/bda73860076c89fd6ebe7f22b62badbb414695dd))
+
+
+### Tests
+
+* add tox ([9194b4e](https://github.com/antmelekhin/ansible-role-confluence/commit/9194b4eb2c0a4a0f0c483c0dbcc759ef08e529be))
+* fix requirements ([75caced](https://github.com/antmelekhin/ansible-role-confluence/commit/75cacedc1569475173838d739e52fcd62cde25dd))
+* use my java ansible role ([60f9d65](https://github.com/antmelekhin/ansible-role-confluence/commit/60f9d6550eac4945bde45280547cd94ea9480bb4))
+
 ## [1.0.6](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.5...v1.0.6) (2024-02-13)
 
 
