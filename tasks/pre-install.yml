@@ -11,14 +11,14 @@
         name: '{{ confluence_username }}'
         group: '{{ confluence_group }}'
         comment: 'Atlassian Confluence'
-        shell: /bin/bash
+        shell: '/bin/bash'
 
     - name: 'Create Confluence directories'
       ansible.builtin.file:
         path: '{{ confluence_path }}'
         owner: '{{ confluence_username }}'
         group: '{{ confluence_group }}'
-        state: directory
+        state: 'directory'
         mode: 0755
       loop:
         - '{{ _confluence_install_path }}'

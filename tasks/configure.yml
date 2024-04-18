@@ -54,7 +54,7 @@
 
     - name: 'Ensure Confluence is running and enabled at boot'
       ansible.builtin.systemd:
-        name: confluence
-        state: started
+        name: 'confluence'
+        state: 'started'
         enabled: true
       when: not ansible_check_mode
