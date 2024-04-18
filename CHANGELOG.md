@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.9](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.8...v1.0.9) (2024-04-18)
+
+
+### Code Refactoring
+
+* update variable names and quote strings ([#14](https://github.com/antmelekhin/ansible-role-confluence/issues/14)) ([b184cb3](https://github.com/antmelekhin/ansible-role-confluence/commit/b184cb395a5eaa307db4d0cfa59546589901c8b1))
+
+
+### Continuous Integration
+
+* add semantic version validation ([6b6e787](https://github.com/antmelekhin/ansible-role-confluence/commit/6b6e78793147286b49ec1aaa7fc7b0071151347b))
+* update release rules ([5eda831](https://github.com/antmelekhin/ansible-role-confluence/commit/5eda831c1d8ea0341811b28c4ecfb35b83a3d3e1))
+* update workflows ([8d7b174](https://github.com/antmelekhin/ansible-role-confluence/commit/8d7b17465062d224e926b280737dec8ccf6f0fba))
+
 ## [1.0.8](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.7...v1.0.8) (2024-04-09)
 
 
