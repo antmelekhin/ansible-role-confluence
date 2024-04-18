@@ -24,7 +24,7 @@
         src: '/tmp/{{ confluence_archive_name }}'
         dest: '{{ _confluence_install_path }}'
         owner: '{{ confluence_username }}'
-        group: '{{ confluence_group }}'
+        group: '{{ confluence_usergroup }}'
         extra_opts:
           - --strip-components=1
       become: true
