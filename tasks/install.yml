@@ -24,7 +24,7 @@
         src: '/tmp/{{ confluence_archive_name }}'
         dest: '{{ _confluence_install_path }}'
         owner: '{{ confluence_username }}'
-        group: '{{ confluence_group }}'
+        group: '{{ confluence_usergroup }}'
         extra_opts:
           - --strip-components=1
       become: true
@@ -33,6 +33,6 @@
   ansible.builtin.file:
     src: '{{ _confluence_install_path }}'
     dest: '{{ _confluence_application_path }}'
-    state: link
+    state: 'link'
   when: not ansible_check_mode
   become: true

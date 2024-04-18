@@ -5,7 +5,7 @@ confluence_download_url: 'https://www.atlassian.com/software/confluence/download
 
 # Confluence user.
 confluence_username: 'confluence'
-confluence_group: 'confluence'
+confluence_usergroup: '{{ confluence_username }}'
 
 # Confluence directories.
 confluence_root_path: '/opt/atlassian/confluence'

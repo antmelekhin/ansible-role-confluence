@@ -7,7 +7,7 @@
         src: 'confluence.service.j2'
         dest: '/etc/systemd/system/confluence.service'
         owner: '{{ confluence_username }}'
-        group: '{{ confluence_group }}'
+        group: '{{ confluence_usergroup }}'
         mode: 0644
       notify: 'Restart Confluence'
 
@@ -16,7 +16,7 @@
         src: 'server.xml.j2'
         dest: '{{ _confluence_application_path }}/conf/server.xml'
         owner: '{{ confluence_username }}'
-        group: '{{ confluence_group }}'
+        group: '{{ confluence_usergroup }}'
         mode: 0600
       notify: 'Restart Confluence'
 
@@ -25,7 +25,7 @@
         src: 'setenv.sh.j2'
         dest: '{{ _confluence_application_path }}/bin/setenv.sh'
         owner: '{{ confluence_username }}'
-        group: '{{ confluence_group }}'
+        group: '{{ confluence_usergroup }}'
         mode: 0755
       notify: 'Restart Confluence'
 
@@ -34,7 +34,7 @@
         src: 'confluence-init.properties.j2'
         dest: '{{ _confluence_application_path }}/confluence/WEB-INF/classes/confluence-init.properties'
         owner: '{{ confluence_username }}'
-        group: '{{ confluence_group }}'
+        group: '{{ confluence_usergroup }}'
         mode: 0644
       notify: 'Restart Confluence'
 
@@ -54,7 +54,7 @@
 
     - name: 'Ensure Confluence is running and enabled at boot'
       ansible.builtin.systemd:
-        name: confluence
-        state: started
+        name: 'confluence'
+        state: 'started'
         enabled: true
       when: not ansible_check_mode
