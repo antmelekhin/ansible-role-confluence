@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.0.10](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.9...v1.0.10) (2024-04-27)
+
+
+### Documentation
+
+* **README:** fixed examples view for Ansible Galaxy ([8cd3001](https://github.com/antmelekhin/ansible-role-confluence/commit/8cd30016a21ae600f6a1f03594c344464fcbccb3))
+
+
+### Styles
+
+* add newline to end of file ([7dd4701](https://github.com/antmelekhin/ansible-role-confluence/commit/7dd4701bac695263133bbda828b2c3a136b15d5a))
+* trim trailing whitespace ([0ab43a8](https://github.com/antmelekhin/ansible-role-confluence/commit/0ab43a88c68b530e7883d645396d3e5296b6973d))
+* update `confluence_user` and `confluence_group` variables ([62e239c](https://github.com/antmelekhin/ansible-role-confluence/commit/62e239c9cd36bd20d91038b152845d80dadea0b5))
+* use double underline register variable ([c4fa082](https://github.com/antmelekhin/ansible-role-confluence/commit/c4fa0828372cd23ff33bc044d5fca433dfb5900b))
+
+
+### Tests
+
+* add .tox as ignore ([92129ad](https://github.com/antmelekhin/ansible-role-confluence/commit/92129ad9f02c04569039e9b06f4f48e639f4878c))
+* add role_name prefix to instance name ([aceb6db](https://github.com/antmelekhin/ansible-role-confluence/commit/aceb6db343706b2fa140a8dc4df19fc6b6f56c6d))
+* run linters in its own workflow ([b16e414](https://github.com/antmelekhin/ansible-role-confluence/commit/b16e4140ed24bb04d6976a61dcf489b93941198c))
+
 ## [1.0.9](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.8...v1.0.9) (2024-04-18)
 
 
