@@ -23,8 +23,8 @@
       ansible.builtin.unarchive:
         src: '/tmp/{{ confluence_archive_name }}'
         dest: '{{ _confluence_install_path }}'
-        owner: '{{ confluence_username }}'
-        group: '{{ confluence_usergroup }}'
+        owner: '{{ confluence_user }}'
+        group: '{{ confluence_group }}'
         extra_opts:
           - --strip-components=1
       become: true

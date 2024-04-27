@@ -27,7 +27,7 @@ Role Variables
 - `confluence_version` The specific version of Confluence to download (default: `8.5.8`).
 - `confluence_archive_name` Confluence archive name (default: `atlassian-confluence-8.5.8.tar.gz`).
 - `confluence_download_url` URL to download an archive with Confluence (default: `https://www.atlassian.com/software/confluence/downloads/binary`).
-- `confluence_username` and `confluence_usergroup` Unix username and group (default: `confluence`).
+- `confluence_user` and `confluence_group` Unix user and group that will be created (default: `confluence`).
 - `confluence_root_path` Path to Confluence installation directory (default: `/opt/atlassian/confluence`).
 - `confluence_home_path` Path to Confluence home directory (default: `/var/atlassian/application-data/confluence`).
 - `confluence_jvm_minimum_memory` and `confluence_jvm_maximum_memory` The minimum and maximum size of the heap (default: `1024m` and `2048m`).

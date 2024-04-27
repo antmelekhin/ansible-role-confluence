@@ -6,7 +6,7 @@ After=network.target
 
 [Service]
 Type=forking
-User={{ confluence_username }}
+User={{ confluence_user }}
 PIDFile={{ _confluence_application_path }}/work/catalina.pid
 ExecStart={{ _confluence_application_path }}/bin/start-confluence.sh
 ExecStop={{ _confluence_application_path }}/bin/stop-confluence.sh

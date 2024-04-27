@@ -4,8 +4,8 @@ confluence_archive_name: 'atlassian-confluence-{{ confluence_version }}.tar.gz'
 confluence_download_url: 'https://www.atlassian.com/software/confluence/downloads/binary'
 
 # Confluence user.
-confluence_username: 'confluence'
-confluence_usergroup: '{{ confluence_username }}'
+confluence_user: 'confluence'
+confluence_group: '{{ confluence_user }}'
 
 # Confluence directories.
 confluence_root_path: '/opt/atlassian/confluence'
