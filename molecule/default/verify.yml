@@ -18,8 +18,8 @@
     - name: 'Check url'
       ansible.builtin.uri:
         url: 'http://{{ ansible_host }}:8090'
-      register: _result
-      until: _result.status == 200
+      register: __result
+      until: __result.status == 200
       retries: 120
       delay: 5
 
@@ -27,8 +27,8 @@
       ansible.builtin.command:
         cmd: grep -Po '(?<=^version=)\N*$' '{{ confluence_path }}/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties'
       changed_when: false
-      register: _confluence_version_check
+      register: __confluence_version_check
 
     - name: 'Version output'
       ansible.builtin.debug:
-        var: _confluence_version_check.stdout
+        var: __confluence_version_check.stdout
