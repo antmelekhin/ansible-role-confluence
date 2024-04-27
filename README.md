@@ -59,25 +59,25 @@ This role doesn't install `java`, reverse proxy (`apache` or `nginx`) and DB man
 Example Playbook
 ----------------
 
-- Install `Confluence`, `java` and configure connection to DB over Confluence web interface:
+Install `Confluence`, `java` and configure connection to DB over Confluence web interface:
 
-  - Install dependencies:
+Install dependencies:
 
-    ```bash
-    ansible-galaxy install -r requirements.yml
-    ```
+```bash
+ansible-galaxy install -r requirements.yml
+```
 
-  - Run playbook:
+Run playbook:
 
-    ```yaml
-    ---
-    - name: Setup Confluence
-      hosts: confluence
+```yaml
+---
+- name: Setup Confluence
+  hosts: confluence
 
-      roles:
-        - role: antmelekhin.java
-        - role: antmelekhin.confluence
-    ```
+  roles:
+    - role: antmelekhin.java
+    - role: antmelekhin.confluence
+```
 
 License
 -------
