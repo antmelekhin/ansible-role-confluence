@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.12](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.11...v1.0.12) (2024-05-14)
+
+
+### Documentation
+
+* **README:** update variables documentation ([24d7a2e](https://github.com/antmelekhin/ansible-role-confluence/commit/24d7a2eca95b275058cf8b3412c2aff1c8dede51))
+
+
+### Styles
+
+* rename tasks ([0dd3364](https://github.com/antmelekhin/ansible-role-confluence/commit/0dd3364cc8efb59ecd9cf80461333464dba738cc))
+
 ## [1.0.11](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.10...v1.0.11) (2024-05-14)
 
 
