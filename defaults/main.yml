@@ -1,5 +1,5 @@
 ---
-confluence_version: '8.5.8'
+confluence_version: '8.5.9'
 confluence_archive_name: 'atlassian-confluence-{{ confluence_version }}.tar.gz'
 confluence_download_url: 'https://www.atlassian.com/software/confluence/downloads/binary'
 
