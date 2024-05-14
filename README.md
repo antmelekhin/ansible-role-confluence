@@ -24,12 +24,17 @@ Requirements
 Role Variables
 --------------
 
-- `confluence_version` The specific version of Confluence to download (default: `8.5.9`).
+Variables used to install Confluence:
+
+- `confluence_version` The version of Confluence to download (default: `8.5.9`).
 - `confluence_archive_name` Confluence archive name (default: `atlassian-confluence-8.5.9.tar.gz`).
-- `confluence_download_url` URL to download an archive with Confluence (default: `https://www.atlassian.com/software/confluence/downloads/binary`).
+- `confluence_download_url` URL to download the Confluence archive (default: `https://www.atlassian.com/software/confluence/downloads/binary`).
+
+Variables used to configure Confluence:
+
 - `confluence_user` and `confluence_group` Unix user and group that will be created (default: `confluence`).
-- `confluence_root_path` Path to Confluence installation directory (default: `/opt/atlassian/confluence`).
-- `confluence_home_path` Path to Confluence home directory (default: `/var/atlassian/application-data/confluence`).
+- `confluence_root_path` The Confluence installation directory (default: `/opt/atlassian/confluence`).
+- `confluence_home_path` The Confluence home directory (default: `/var/atlassian/application-data/confluence`).
 - `confluence_jvm_minimum_memory` and `confluence_jvm_maximum_memory` The minimum and maximum size of the heap (default: `1024m` and `2048m`).
 - DB connection settings, read [documentation](https://confluence.atlassian.com/conf713/configuring-a-datasource-connection-1077914464.html) before enable.
   - `confluence_db_configuration` DB connection configuration (default: `false`).
@@ -54,12 +59,12 @@ Role Variables
 Dependencies
 ------------
 
-This role doesn't install `java`, reverse proxy (`apache` or `nginx`) and DB management system. You'll need to install packages before using.
+This role doesn't install a `Java` package, a reverse proxy (`Apache` or `Nginx`), or a database management system. You will need to install these packages before using the role.
 
 Example Playbook
 ----------------
 
-Install `Confluence`, `java` and configure connection to DB over Confluence web interface:
+Install Confluence, Java package, and configure a connection to the database through the Confluence web interface:
 
 Install dependencies:
 
