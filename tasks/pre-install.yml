@@ -2,11 +2,11 @@
 - name: 'Prepare to install Confluence'
   become: true
   block:
-    - name: 'Create Confluence group'
+    - name: 'Create a Confluence group'
       ansible.builtin.group:
         name: '{{ confluence_group }}'
 
-    - name: 'Create Confluence user'
+    - name: 'Create a Confluence user'
       ansible.builtin.user:
         name: '{{ confluence_user }}'
         group: '{{ confluence_group }}'

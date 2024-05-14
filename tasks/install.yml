@@ -1,5 +1,5 @@
 ---
-- name: 'Check current Confluence version'
+- name: 'Check the current Confluence version'
   ansible.builtin.command:
     cmd: grep -Po '(?<=^version=)\N*$' '{{ _confluence_application_path }}/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties'
   failed_when: false
@@ -12,7 +12,7 @@
     - __confluence_version_check.stdout is not defined or
       confluence_version not in __confluence_version_check.stdout
   block:
-    - name: 'Download Confluence archive to local folder'
+    - name: 'Download the Confluence archive to a local folder'
       ansible.builtin.get_url:
         url: '{{ confluence_download_url }}/{{ confluence_archive_name }}'
         dest: '/tmp/{{ confluence_archive_name }}'
@@ -29,7 +29,7 @@
           - --strip-components=1
       become: true
 
-- name: 'Create symbolic link for Confluence'
+- name: 'Create a symbolic link to Confluence'
   ansible.builtin.file:
     src: '{{ _confluence_install_path }}'
     dest: '{{ _confluence_application_path }}'

@@ -2,7 +2,7 @@
 - name: 'Configure and start Confluence'
   become: true
   block:
-    - name: 'Create Confluence unit for SystemD'
+    - name: 'Create a Confluence systemd service'
       ansible.builtin.template:
         src: 'confluence.service.j2'
         dest: '/etc/systemd/system/confluence.service'
@@ -11,7 +11,7 @@
         mode: 0644
       notify: 'Restart Confluence'
 
-    - name: 'Configure Confluence'
+    - name: 'Configure the Confluence server settings'
       ansible.builtin.template:
         src: 'server.xml.j2'
         dest: '{{ _confluence_application_path }}/conf/server.xml'
@@ -20,7 +20,7 @@
         mode: 0600
       notify: 'Restart Confluence'
 
-    - name: 'Configure Confluence environment'
+    - name: 'Configure the Confluence environment'
       ansible.builtin.template:
         src: 'setenv.sh.j2'
         dest: '{{ _confluence_application_path }}/bin/setenv.sh'
@@ -29,7 +29,7 @@
         mode: 0755
       notify: 'Restart Confluence'
 
-    - name: 'Configure Confluence home'
+    - name: 'Define the Confluence home directory'
       ansible.builtin.template:
         src: 'confluence-init.properties.j2'
         dest: '{{ _confluence_application_path }}/confluence/WEB-INF/classes/confluence-init.properties'
@@ -38,7 +38,7 @@
         mode: 0644
       notify: 'Restart Confluence'
 
-    - name: 'Configure Confluence database connection'
+    - name: 'Configure the Confluence database connection'
       ansible.builtin.blockinfile:
         path: '{{ _confluence_application_path }}/confluence/WEB-INF/web.xml'
         insertbefore: '</web-app>'
