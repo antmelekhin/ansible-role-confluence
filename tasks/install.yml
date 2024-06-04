@@ -26,10 +26,10 @@
         owner: '{{ confluence_user }}'
         group: '{{ confluence_group }}'
         extra_opts:
-          - --strip-components=1
+          - '--strip-components=1'
       become: true
 
-- name: 'Create a symbolic link to Confluence'
+- name: 'Create the symbolic link to Confluence installation path'
   ansible.builtin.file:
     src: '{{ _confluence_install_path }}'
     dest: '{{ _confluence_application_path }}'
