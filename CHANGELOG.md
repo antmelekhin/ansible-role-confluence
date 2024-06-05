@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.12...v1.1.0) (2024-06-05)
+
+
+### Improvements
+
+* update variables and common role style ([#16](https://github.com/antmelekhin/ansible-role-confluence/issues/16)) ([6041909](https://github.com/antmelekhin/ansible-role-confluence/commit/6041909dceea157da18245484d00c8e9992b3185))
+
 ## [1.0.12](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.11...v1.0.12) (2024-05-14)
 
 
