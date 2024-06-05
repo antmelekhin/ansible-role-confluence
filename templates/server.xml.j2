@@ -72,7 +72,7 @@
                         username="{{ confluence_db_username }}"
                         password="{{ confluence_db_password }}"
                         driverClassName="org.postgresql.Driver"
-                        url="jdbc:postgresql://{{ confluence_db_address }}:{{ confluence_db_port }}/{{ confluence_db_name }}"
+                        url="jdbc:postgresql://{{ confluence_db_host }}:{{ confluence_db_port }}/{{ confluence_db_name }}"
                         maxTotal="60"
                         maxIdle="20"
                         testOnBorrow="true"/>

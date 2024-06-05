@@ -9,26 +9,26 @@
     - name: 'Gathering Service Facts'
       ansible.builtin.service_facts:
 
-    - name: 'Assert that confluence service is enabled and running'
+    - name: 'Assert that Confluence service is enabled and running'
       ansible.builtin.assert:
         that:
           - ansible_facts.services['confluence.service'].state == 'running'
           - ansible_facts.services['confluence.service'].status == 'enabled'
 
-    - name: 'Check url'
+    - name: 'Verify the Confluence host is responding to requests'
       ansible.builtin.uri:
         url: 'http://{{ ansible_host }}:8090'
-      register: __result
-      until: __result.status == 200
+      register: __confluence_response
+      until: __confluence_response.status == 200
       retries: 120
       delay: 5
 
-    - name: 'Check current Confluence version'
+    - name: 'Check the current Confluence version'
       ansible.builtin.command:
         cmd: grep -Po '(?<=^version=)\N*$' '{{ confluence_path }}/confluence/META-INF/maven/com.atlassian.confluence/confluence-webapp/pom.properties'
       changed_when: false
       register: __confluence_version_check
 
-    - name: 'Version output'
+    - name: 'Confluence version output'
       ansible.builtin.debug:
         var: __confluence_version_check.stdout

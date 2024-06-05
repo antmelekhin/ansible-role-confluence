@@ -2,23 +2,29 @@
 confluence_version: '8.5.9'
 confluence_archive_name: 'atlassian-confluence-{{ confluence_version }}.tar.gz'
 confluence_download_url: 'https://www.atlassian.com/software/confluence/downloads/binary'
+confluence_download_path: '/tmp'
 
-# Confluence user.
+# The Confluence user and group
 confluence_user: 'confluence'
 confluence_group: '{{ confluence_user }}'
 
-# Confluence directories.
+# The Confluence directories
 confluence_root_path: '/opt/atlassian/confluence'
 confluence_home_path: '/var/atlassian/application-data/confluence'
 
-# Confluence environment configuration.
+# The Confluence environment configuration
 confluence_jvm_minimum_memory: '1024m'
 confluence_jvm_maximum_memory: '1024m'
 
-# Confluence database connection settings.
+# The Confluence database connection settings
 confluence_db_configuration: false
+confluence_db_host: ''
+confluence_db_port: ''
+confluence_db_name: ''
+confluence_db_username: ''
+confluence_db_password: ''
 
-# Confluence proxy settings.
+# The Confluence proxy settings
 confluence_tomcat_connector_proxyname: ''
 confluence_tomcat_connector_scheme: 'http'
 confluence_tomcat_connector_proxyport: '{{ (confluence_tomcat_connector_scheme | lower == "http") | ternary("80", "443") }}'
