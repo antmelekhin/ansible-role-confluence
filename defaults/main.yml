@@ -18,6 +18,11 @@ confluence_jvm_maximum_memory: '1024m'
 
 # The Confluence database connection settings
 confluence_db_configuration: false
+confluence_db_host: ''
+confluence_db_port: ''
+confluence_db_name: ''
+confluence_db_username: ''
+confluence_db_password: ''
 
 # The Confluence proxy settings
 confluence_tomcat_connector_proxyname: ''

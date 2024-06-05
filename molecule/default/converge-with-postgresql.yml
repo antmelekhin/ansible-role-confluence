@@ -21,7 +21,7 @@
           owner: '{{ db_username }}'
     - role: antmelekhin.confluence
       confluence_db_configuration: true
-      confluence_db_address: 127.0.0.1
+      confluence_db_host: 'localhost'
       confluence_db_port: 5432
       confluence_db_name: '{{ db_name }}'
       confluence_db_username: '{{ db_username }}'
