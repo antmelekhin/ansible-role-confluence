@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.1.0...v1.1.1) (2024-06-11)
+
+
+### Fixes
+
+* **version:** confluence updated to `8.5.10` release ([#17](https://github.com/antmelekhin/ansible-role-confluence/issues/17)) ([e061a58](https://github.com/antmelekhin/ansible-role-confluence/commit/e061a5861a190a6cfe75153c0a082cf297d4a464))
+
 ## [1.1.0](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.0.12...v1.1.0) (2024-06-05)
 
 
