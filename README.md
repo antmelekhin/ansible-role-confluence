@@ -32,7 +32,7 @@ Role Variables
 - `confluence_root_path` The Confluence installation directory (default: `/opt/atlassian/confluence`).
 - `confluence_home_path` The Confluence home directory (default: `/var/atlassian/application-data/confluence`).
 - `confluence_jvm_minimum_memory` and `confluence_jvm_maximum_memory` The minimum and maximum size of the heap (default: `1024m` and `2048m`).
-- `confluence_db_configuration` DB connection settings, read [documentation](https://confluence.atlassian.com/conf85/configuring-a-datasource-connection-1283361007.html) before enable (default: `false`).
+- `confluence_db_configuration` DB connection settings, read [documentation](https://confluence.atlassian.com/conf85/configuring-a-datasource-connection-1283361007.html) before enable (default: `false`). Atlassian ended support for datasource connections in Confluence 8.0.
 - `confluence_db_host` Hostname or IP address of your database server.
 - `confluence_db_port` TCP port number for your database server.
 - `confluence_db_name` DB name.

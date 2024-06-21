@@ -67,7 +67,7 @@
         <Engine name="Standalone" defaultHost="localhost" debug="0">
             <Host name="localhost" debug="0" appBase="webapps" unpackWARs="true" autoDeploy="false" startStopThreads="4">
                 <Context path="" docBase="../confluence" debug="0" reloadable="false" useHttpOnly="true">
-                    {% if confluence_db_configuration | bool -%}
+                    {% if confluence_db_configuration | bool and confluence_version <= '8.0.0' -%}
                     <Resource name="jdbc/confluence" auth="Container" type="javax.sql.DataSource"
                         username="{{ confluence_db_username }}"
                         password="{{ confluence_db_password }}"

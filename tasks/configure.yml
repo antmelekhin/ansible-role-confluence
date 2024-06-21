@@ -42,6 +42,7 @@
       ansible.builtin.blockinfile:
         path: '{{ _confluence_application_path }}/confluence/WEB-INF/web.xml'
         insertbefore: '</web-app>'
+        marker: '<!-- {mark} ANSIBLE MANAGED BLOCK -->'
         block: |
           <resource-ref>
             <description>Connection Pool</description>
@@ -50,7 +51,7 @@
             <res-auth>Container</res-auth>
           </resource-ref>
       notify: 'Restart Confluence'
-      when: confluence_db_configuration | bool
+      when: confluence_db_configuration | bool and confluence_version <= '8.0.0'
 
     - name: 'Ensure Confluence is running and enabled at boot'
       ansible.builtin.systemd:
