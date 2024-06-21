@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.1.2...v1.1.3) (2024-06-21)
+
+
+### Fixes
+
+* db configuration condition ([5f98616](https://github.com/antmelekhin/ansible-role-confluence/commit/5f98616a23479074bb18acb32637a7bd5fd0c7b6))
+
 ## [1.1.2](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.1.1...v1.1.2) (2024-06-18)
 
 
