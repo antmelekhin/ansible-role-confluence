@@ -31,4 +31,4 @@
 
     - name: 'Confluence version output'
       ansible.builtin.debug:
-        var: __confluence_version_check.stdout
+        msg: 'The current Confluence version is {{ __confluence_version_check.stdout }}'
