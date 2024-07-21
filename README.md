@@ -27,6 +27,7 @@ Role Variables
 - `confluence_version` The version of Confluence to download (default: `8.5.12`).
 - `confluence_archive_name` Confluence archive name (default: `atlassian-confluence-8.5.12.tar.gz`).
 - `confluence_download_url` URL to download the Confluence archive (default: `https://www.atlassian.com/software/confluence/downloads/binary`).
+- `confluence_checksum_url` The Confluence checksum file URL (default: `{{ confluence_download_url }}/{{ confluence_archive_name }}.sha256`).
 - `confluence_download_path` Local path to download and extract the archive (default: `/tmp`).
 - `confluence_user` and `confluence_group` System user and group that will be created (default: `confluence`).
 - `confluence_root_path` The Confluence installation directory (default: `/opt/atlassian/confluence`).
