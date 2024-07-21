@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.5](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.1.4...v1.1.5) (2024-07-21)
+
+
+### Fixes
+
+* add `confluence_checksum_url` variable ([c04fbf0](https://github.com/antmelekhin/ansible-role-confluence/commit/c04fbf05fd2a1f040911c558f6bf8d629a1fb744))
+* add tar package as dependency ([c774ff0](https://github.com/antmelekhin/ansible-role-confluence/commit/c774ff0272ec800aa0f80613a918ac0084a56879))
+
+
+### Tests
+
+* clean version output in the default scenario ([3937e3d](https://github.com/antmelekhin/ansible-role-confluence/commit/3937e3d6e001894a3df0fb86465bb965a8b68068))
+
 ## [1.1.4](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.1.3...v1.1.4) (2024-07-08)
 
 
