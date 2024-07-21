@@ -2,6 +2,17 @@
 - name: 'Prepare for installing Confluence'
   become: true
   block:
+    - name: 'Update the APT package cache'
+      ansible.builtin.apt:
+        update_cache: true
+      check_mode: false
+      when: ansible_os_family == 'Debian'
+
+    - name: 'Ensure the dependencies are installed'
+      ansible.builtin.package:
+        name: 'tar'
+        state: 'present'
+
     - name: 'Create a Confluence group'
       ansible.builtin.group:
         name: '{{ confluence_group }}'
