@@ -1,0 +1,93 @@
+---
+argument_specs:
+  main:
+    short_description: 'Confluence'
+    description:
+      - 'An Ansible role to install, configure and update L(Confluence,https://www.atlassian.com/ru/software/confluence).'
+    author:
+      - 'Melekhin Anton'
+    options:
+      confluence_version:
+        type: 'str'
+        description: 'The version of Confluence to download.'
+        default: '8.5.14'
+      confluence_archive_name:
+        type: 'str'
+        description: 'Confluence archive name.'
+        default: 'atlassian-confluence-{{ confluence_version }}.tar.gz'
+      confluence_download_url:
+        type: 'str'
+        description: 'URL to download the Confluence archive.'
+        default: 'https://www.atlassian.com/software/confluence/downloads/binary'
+      confluence_checksum_url:
+        type: 'str'
+        description: 'The Confluence checksum file URL.'
+        default: '{{ confluence_download_url }}/{{ confluence_archive_name }}.sha256'
+      confluence_download_path:
+        type: 'path'
+        description: 'Local path to download and extract the archive.'
+        default: '/tmp'
+      confluence_user:
+        type: 'str'
+        description: 'System user that will be created.'
+        default: 'confluence'
+      confluence_group:
+        type: 'str'
+        description: 'System group that will be created.'
+        default: '{{ confluence_user }}'
+      confluence_root_path:
+        type: 'path'
+        description: 'The Confluence installation directory.'
+        default: '/opt/atlassian/confluence'
+      confluence_home_path:
+        type: 'path'
+        description: 'The Confluence home directory.'
+        default: '/var/atlassian/application-data/confluence'
+      confluence_jvm_minimum_memory:
+        type: 'str'
+        description: 'The minimum size of the heap.'
+        default: '1024m'
+      confluence_jvm_maximum_memory:
+        type: 'str'
+        description: 'The maximum size of the heap.'
+        default: '1024m'
+      confluence_db_configuration:
+        type: 'bool'
+        description:
+          - 'DB connection configuration, read L(documentation,https://confluence.atlassian.com/conf85/configuring-a-datasource-connection-1283361007.html) before enable'
+          - 'Atlassian ended support for datasource connections in Confluence 8.0.'
+        default: false
+      confluence_db_host:
+        type: 'str'
+        description: 'Hostname or IP address of your database server.'
+      confluence_db_port:
+        type: 'str'
+        description: 'TCP port number for your database server.'
+      confluence_db_name:
+        type: 'str'
+        description: 'DB name.'
+      confluence_db_username:
+        type: 'str'
+        description: 'Database username to be passed to the JDBC driver.'
+      confluence_db_password:
+        type: 'str'
+        description: 'Database password to be passed to the JDBC driver.'
+      confluence_tomcat_connector_proxyname:
+        type: 'str'
+        description: "Fqdn server name. If you don't use a reverse proxy, then you'll need to leave this variable without value."
+      confluence_tomcat_connector_scheme:
+        type: 'str'
+        description:
+          - 'Connection scheme.'
+          - "If you use C(https) value, you'll need to install SSL sertificate on server with reverse proxy."
+        choices:
+          - 'http'
+          - 'https'
+        default: 'http'
+      confluence_tomcat_connector_proxyport:
+        type: 'int'
+        description:
+          - 'Server port.'
+          - '80 port sets automatically if value in C(confluence_tomcat_connector_scheme) variable is C(http).'
+          - '443 port sets automatically if value in C(confluence_tomcat_connector_scheme) variable is C(https).'
+        default: "{{ (confluence_tomcat_connector_scheme | lower == 'http') | ternary('80', '443') }}"
