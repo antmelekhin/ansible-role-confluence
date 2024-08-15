@@ -28,4 +28,4 @@ confluence_db_password: ''
 # The Confluence proxy settings
 confluence_tomcat_connector_proxyname: ''
 confluence_tomcat_connector_scheme: 'http'
-confluence_tomcat_connector_proxyport: '{{ (confluence_tomcat_connector_scheme | lower == "http") | ternary("80", "443") }}'
+confluence_tomcat_connector_proxyport: "{{ (confluence_tomcat_connector_scheme | lower == 'http') | ternary('80', '443') }}"

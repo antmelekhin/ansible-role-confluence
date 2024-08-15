@@ -24,28 +24,9 @@ Requirements
 Role Variables
 --------------
 
-- `confluence_version` The version of Confluence to download (default: `8.5.14`).
-- `confluence_archive_name` Confluence archive name (default: `atlassian-confluence-8.5.14.tar.gz`).
-- `confluence_download_url` URL to download the Confluence archive (default: `https://www.atlassian.com/software/confluence/downloads/binary`).
-- `confluence_checksum_url` The Confluence checksum file URL (default: `{{ confluence_download_url }}/{{ confluence_archive_name }}.sha256`).
-- `confluence_download_path` Local path to download and extract the archive (default: `/tmp`).
-- `confluence_user` and `confluence_group` System user and group that will be created (default: `confluence`).
-- `confluence_root_path` The Confluence installation directory (default: `/opt/atlassian/confluence`).
-- `confluence_home_path` The Confluence home directory (default: `/var/atlassian/application-data/confluence`).
-- `confluence_jvm_minimum_memory` and `confluence_jvm_maximum_memory` The minimum and maximum size of the heap (default: `1024m` and `2048m`).
-- `confluence_db_configuration` DB connection settings, read [documentation](https://confluence.atlassian.com/conf85/configuring-a-datasource-connection-1283361007.html) before enable (default: `false`). Atlassian ended support for datasource connections in Confluence 8.0.
-- `confluence_db_host` Hostname or IP address of your database server.
-- `confluence_db_port` TCP port number for your database server.
-- `confluence_db_name` DB name.
-- `confluence_db_username` and `confluence_db_password` Database username and password to be passed to the JDBC driver.
-- `confluence_tomcat_connector_proxyname` Fqdn server name. If you don't use a reverse proxy, then you'll need to leave this variable without value.
-- `confluence_tomcat_connector_scheme` Connection scheme. Available values: `http` (default), `https`.
-
-    **Attention** If you use `https` value, you'll need to install SSL sertificate on server with reverse proxy.
-
-- `confluence_tomcat_connector_proxyport` Server port (default: `80` or `443`).
-  - `80` sets automatically if value in `confluence_tomcat_connector_scheme` is `http`.
-  - `443` sets automatically if value in `confluence_tomcat_connector_scheme` is `https`.
+All variables that can be overridden are stored in the [defaults/main.yml](https://github.com/antmelekhin/ansible-role-confluence/blob/main/defaults/main.yml) file.
+Please refer to the [meta/argument_specs.yml](https://github.com/antmelekhin/ansible-role-confluence/blob/main/meta/argument_specs.yml) file for a description of the available variables.
+Similarly, descriptions and defaults for preset variables can be found in the [vars/main.yml](https://github.com/antmelekhin/ansible-role-confluence/blob/main/vars/main.yml) file.
 
 Dependencies
 ------------
