@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.1.6...v1.2.0) (2024-08-15)
+
+
+### Features
+
+* add `meta/argument_specs.yml` file ([#21](https://github.com/antmelekhin/ansible-role-confluence/issues/21)) ([c167e33](https://github.com/antmelekhin/ansible-role-confluence/commit/c167e33e21faada08c690fcac95e72b6bc06ce5f))
+
 ## [1.1.6](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.1.5...v1.1.6) (2024-08-13)
 
 
