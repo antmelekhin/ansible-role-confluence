@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.2.0...v2.0.0) (2024-08-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename `confluence_root_path` variable
+
+### Fixes
+
+* rename `confluence_root_path` variable ([fd632e1](https://github.com/antmelekhin/ansible-role-confluence/commit/fd632e1965455fae55da36e542d6f2ae9c259f67))
+
 ## [1.2.0](https://github.com/antmelekhin/ansible-role-confluence/compare/v1.1.6...v1.2.0) (2024-08-15)
 
 
