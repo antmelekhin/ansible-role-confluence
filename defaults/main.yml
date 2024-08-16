@@ -10,7 +10,7 @@ confluence_user: 'confluence'
 confluence_group: '{{ confluence_user }}'
 
 # The Confluence directories
-confluence_root_path: '/opt/atlassian/confluence'
+confluence_install_path: '/opt/atlassian/confluence'
 confluence_home_path: '/var/atlassian/application-data/confluence'
 
 # The Confluence environment configuration

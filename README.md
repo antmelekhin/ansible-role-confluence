@@ -3,6 +3,11 @@ Confluence
 
 An Ansible role to install, configure and update [Confluence](https://www.atlassian.com/ru/software/confluence).
 
+Upgrade to 2.x
+--------------
+
+In version 2.0.0, the `confluence_root_path` variable was renamed to `confluence_install_path`.
+
 Requirements
 ------------
 

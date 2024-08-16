@@ -1,3 +1,2 @@
 ---
-_confluence_install_path: '{{ confluence_root_path }}/{{ confluence_version }}'
-_confluence_application_path: '{{ confluence_root_path }}/current'
+__confluence_root_path: '{{ confluence_install_path }}/current'

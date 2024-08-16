@@ -32,7 +32,7 @@
         state: 'directory'
         mode: 0755
       loop:
-        - '{{ _confluence_install_path }}'
+        - '{{ confluence_install_path }}/{{ confluence_version }}'
         - '{{ confluence_home_path }}'
       loop_control:
         loop_var: confluence_path

@@ -14,7 +14,7 @@
     - name: 'Configure the Confluence server settings'
       ansible.builtin.template:
         src: 'server.xml.j2'
-        dest: '{{ _confluence_application_path }}/conf/server.xml'
+        dest: '{{ __confluence_root_path }}/conf/server.xml'
         owner: '{{ confluence_user }}'
         group: '{{ confluence_group }}'
         mode: 0600
@@ -23,7 +23,7 @@
     - name: 'Configure the Confluence environment'
       ansible.builtin.template:
         src: 'setenv.sh.j2'
-        dest: '{{ _confluence_application_path }}/bin/setenv.sh'
+        dest: '{{ __confluence_root_path }}/bin/setenv.sh'
         owner: '{{ confluence_user }}'
         group: '{{ confluence_group }}'
         mode: 0755
@@ -32,7 +32,7 @@
     - name: 'Define the Confluence home directory'
       ansible.builtin.template:
         src: 'confluence-init.properties.j2'
-        dest: '{{ _confluence_application_path }}/confluence/WEB-INF/classes/confluence-init.properties'
+        dest: '{{ __confluence_root_path }}/confluence/WEB-INF/classes/confluence-init.properties'
         owner: '{{ confluence_user }}'
         group: '{{ confluence_group }}'
         mode: 0644
@@ -40,7 +40,7 @@
 
     - name: 'Configure the Confluence database connection'
       ansible.builtin.blockinfile:
-        path: '{{ _confluence_application_path }}/confluence/WEB-INF/web.xml'
+        path: '{{ __confluence_root_path }}/confluence/WEB-INF/web.xml'
         insertbefore: '</web-app>'
         marker: '<!-- {mark} ANSIBLE MANAGED BLOCK -->'
         block: |
