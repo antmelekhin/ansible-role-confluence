@@ -21,18 +21,18 @@
       delegate_to: localhost
 
     - name: 'Unarchive Confluence'
+      become: true
       ansible.builtin.unarchive:
         src: '{{ confluence_download_path }}/{{ confluence_archive_name }}'
         dest: '{{ confluence_install_path }}/{{ confluence_version }}'
         owner: '{{ confluence_user }}'
         group: '{{ confluence_group }}'
         extra_opts: ['--strip-components=1']
-      become: true
 
 - name: 'Create the symbolic link to Confluence installation path'
+  become: true
   ansible.builtin.file:
     src: '{{ confluence_install_path }}/{{ confluence_version }}'
     dest: '{{ __confluence_root_path }}'
     state: 'link'
   when: not ansible_check_mode
-  become: true
