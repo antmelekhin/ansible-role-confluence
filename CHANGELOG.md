@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.2](https://github.com/antmelekhin/ansible-role-confluence/compare/v2.0.1...v2.0.2) (2024-10-04)
+
+
+### Continuous Integration
+
+* use `ubuntu-24.04` instead of `ubuntu-latest` ([bab63ef](https://github.com/antmelekhin/ansible-role-confluence/commit/bab63eff97e56e17294fde04dd9a37efc729d1df))
+
+
+### Fixes
+
+* add `become: false` to localhost delegated tasks ([f3153ec](https://github.com/antmelekhin/ansible-role-confluence/commit/f3153eca0d7c3abd2b635c4ebd50a8fb395af4a6))
+
+
+### Styles
+
+* minor fixes ([28a9807](https://github.com/antmelekhin/ansible-role-confluence/commit/28a9807b665e5cca5e70ed75df40dcc9e14d3daa))
+
 ## [2.0.1](https://github.com/antmelekhin/ansible-role-confluence/compare/v2.0.0...v2.0.1) (2024-09-05)
 
 
