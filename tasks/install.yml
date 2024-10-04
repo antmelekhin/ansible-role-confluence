@@ -13,6 +13,7 @@
       confluence_version not in __confluence_version_check.stdout
   block:
     - name: 'Download the Confluence archive to a local folder'
+      become: false
       ansible.builtin.get_url:
         url: '{{ confluence_download_url }}/{{ confluence_archive_name }}'
         dest: '{{ confluence_download_path }}/{{ confluence_archive_name }}'
