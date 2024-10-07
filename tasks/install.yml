@@ -21,7 +21,7 @@
         mode: 0644
       delegate_to: localhost
 
-    - name: 'Unarchive Confluence'
+    - name: 'Unarchive Confluence on a target host'
       become: true
       ansible.builtin.unarchive:
         src: '{{ confluence_download_path }}/{{ confluence_archive_name }}'

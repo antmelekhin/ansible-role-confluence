@@ -4,8 +4,7 @@ argument_specs:
     short_description: 'Confluence'
     description:
       - 'An Ansible role to install, configure and update L(Confluence,https://www.atlassian.com/ru/software/confluence).'
-    author:
-      - 'Melekhin Anton'
+    author: 'Melekhin Anton'
     options:
       confluence_version:
         type: 'str'
