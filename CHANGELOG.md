@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.3](https://github.com/antmelekhin/ansible-role-confluence/compare/v2.0.2...v2.0.3) (2024-10-08)
+
+
+### Continuous Integration
+
+* use `ubuntu-22.04` instead of `ubuntu-24.04` ([b5a4169](https://github.com/antmelekhin/ansible-role-confluence/commit/b5a4169d64b3d7b1d88f16fdcd115bb3c68bb3ac))
+
+
+### Fixes
+
+* **version:** confluence updated to `8.5.16` release ([#23](https://github.com/antmelekhin/ansible-role-confluence/issues/23)) ([b3c025f](https://github.com/antmelekhin/ansible-role-confluence/commit/b3c025f207a38a1b3b8320c012c4b092b4b2a621))
+
+
+### Styles
+
+* minor fixes ([25e4b2f](https://github.com/antmelekhin/ansible-role-confluence/commit/25e4b2f5262abf37b421b30c76f0d8301f69a4da))
+
 ## [2.0.2](https://github.com/antmelekhin/ansible-role-confluence/compare/v2.0.1...v2.0.2) (2024-10-04)
 
 
