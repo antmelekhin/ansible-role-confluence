@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.5](https://github.com/antmelekhin/ansible-role-confluence/compare/v2.0.4...v2.0.5) (2024-12-01)
+
+
+### Documentation
+
+* **README:** updated requirements ([425e65c](https://github.com/antmelekhin/ansible-role-confluence/commit/425e65c139c2b97e1c3e244e2a1f6763719b00df))
+
 ## [2.0.4](https://github.com/antmelekhin/ansible-role-confluence/compare/v2.0.3...v2.0.4) (2024-11-06)
 
 
