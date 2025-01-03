@@ -38,6 +38,7 @@ cd $PUSHED_DIR
 
 echo ""
 echo "Server startup logs are located in $LOGBASEABS/logs/catalina.out"
+
 # IMPORTANT NOTE: Only set JAVA_HOME or JRE_HOME above this line
 # Get standard Java environment variables
 if $os400; then
@@ -46,6 +47,9 @@ if $os400; then
   # 2. owned by the PRIMARY group of the user
   # this will not work if the user belongs in secondary groups
   . "$CATALINA_HOME"/bin/setjre.sh
+{% if confluence_version is version('9.1.0', '>=') %}
+  . "$CATALINA_HOME"/bin/check-java.sh
+{% endif %}
 else
   if [ -r "$CATALINA_HOME"/bin/setjre.sh ]; then
     . "$CATALINA_HOME"/bin/setjre.sh
@@ -54,6 +58,16 @@ else
     echo "This file is needed to run this program"
     exit 1
   fi
+{% if confluence_version is version('9.1.0', '>=') %}
+  # Check Java Version
+  if [ -r "$CATALINA_HOME"/bin/check-java.sh ]; then
+    . "$CATALINA_HOME"/bin/check-java.sh
+  else
+    echo "Cannot find $CATALINA_HOME/bin/check-java.sh"
+    echo "This file is needed to run this program"
+    exit 1
+  fi
+{% endif %}
 fi
 
 echo "---------------------------------------------------------------------------"
