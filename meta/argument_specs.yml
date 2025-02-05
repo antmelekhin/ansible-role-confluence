@@ -9,7 +9,7 @@ argument_specs:
       confluence_version:
         type: 'str'
         description: 'The version of Confluence to download.'
-        default: '9.2.0'
+        default: '9.2.1'
       confluence_archive_name:
         type: 'str'
         description: 'Confluence archive name.'
