@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.12](https://github.com/antmelekhin/ansible-role-confluence/compare/v2.0.11...v2.0.12) (2025-05-09)
+
+
+### Fixes
+
+* add cache_valid_time ([7dcbf3f](https://github.com/antmelekhin/ansible-role-confluence/commit/7dcbf3f9976d3e3a7d2749896c126e22e6c04acb))
+
 ## [2.0.11](https://github.com/antmelekhin/ansible-role-confluence/compare/v2.0.10...v2.0.11) (2025-05-07)
 
 
