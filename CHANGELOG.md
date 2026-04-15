@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.25](https://github.com/antmelekhin/ansible-role-confluence/compare/v2.0.24...v2.0.25) (2026-04-15)
+
+
+### Fixes
+
+* **version:** confluence updated to `9.2.19` release ([#44](https://github.com/antmelekhin/ansible-role-confluence/issues/44)) ([0bd8d24](https://github.com/antmelekhin/ansible-role-confluence/commit/0bd8d24571cea601fb204f9826781df71c28895a))
+
 ## [2.0.24](https://github.com/antmelekhin/ansible-role-confluence/compare/v2.0.23...v2.0.24) (2026-03-14)
 
 
