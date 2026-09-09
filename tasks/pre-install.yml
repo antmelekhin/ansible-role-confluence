@@ -31,7 +31,7 @@
         owner: '{{ confluence_user }}'
         group: '{{ confluence_group }}'
         state: 'directory'
-        mode: 0755
+        mode: '0755'
       loop:
         - '{{ confluence_install_path }}/{{ confluence_version }}'
         - '{{ confluence_home_path }}'

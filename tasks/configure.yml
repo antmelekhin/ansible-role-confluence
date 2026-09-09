@@ -8,7 +8,7 @@
         dest: '/etc/systemd/system/confluence.service'
         owner: '{{ confluence_user }}'
         group: '{{ confluence_group }}'
-        mode: 0644
+        mode: '0644'
       notify: 'Restart Confluence'
 
     - name: 'Configure the Confluence server settings'
@@ -17,7 +17,7 @@
         dest: '{{ __confluence_root_path }}/conf/server.xml'
         owner: '{{ confluence_user }}'
         group: '{{ confluence_group }}'
-        mode: 0600
+        mode: '0600'
       notify: 'Restart Confluence'
 
     - name: 'Configure the Confluence environment'
@@ -26,7 +26,7 @@
         dest: '{{ __confluence_root_path }}/bin/setenv.sh'
         owner: '{{ confluence_user }}'
         group: '{{ confluence_group }}'
-        mode: 0755
+        mode: '0755'
       notify: 'Restart Confluence'
 
     - name: 'Define the Confluence home directory'
@@ -35,7 +35,7 @@
         dest: '{{ __confluence_root_path }}/confluence/WEB-INF/classes/confluence-init.properties'
         owner: '{{ confluence_user }}'
         group: '{{ confluence_group }}'
-        mode: 0644
+        mode: '0644'
       notify: 'Restart Confluence'
 
     - name: 'Configure the Confluence database connection'
